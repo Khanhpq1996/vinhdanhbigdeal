@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tạo Ảnh Vinh Danh BIG DEAL | BIC - BIDV</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Montserrat (tiêu đề/số tiền), Be Vietnam Pro (nội dung), Great Vibes / Playfair Display (Vinh danh) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Great+Vibes&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#005f53',
+              darkteal: '#00362f',
+              deep: '#01201c',
+              gold: '#ffd13b',
+              goldlight: '#fff3a8',
+              golddark: '#b8860b'
+            }
+          },
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+            montserrat: ['"Montserrat"', 'sans-serif'],
+            script: ['"Great Vibes"', 'cursive']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #021a16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #0d9488;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #14b8a6;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-amber-400 selection:text-slate-900">
+
+  <!-- Header -->
+  <header class="bg-brand-deep/95 border-b border-teal-800/40 sticky top-0 z-40 px-4 sm:px-6 py-3 flex items-center justify-between backdrop-blur-md shadow-lg">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-300 via-amber-500 to-emerald-600 p-[2px] shadow-lg shadow-teal-950 flex items-center justify-center">
+        <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center text-amber-300">
+          <i data-lucide="award" class="w-5 h-5"></i>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-sm sm:text-base font-extrabold tracking-tight text-white flex items-center gap-2">
+          ỨNG DỤNG TẠO ẢNH VINH DANH QUA AI<span class="text-xs uppercase bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded shadow-sm">BIG DEAL</span>
+        </h1>
+        <p class="text-[11px] text-teal-300/80 font-medium hidden sm:block">Nhóm Bancas BIDV</p>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <button id="btnDownloadHD" class="flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-xs font-bold bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-300 text-slate-950 transition shadow-lg shadow-amber-500/20 active:scale-95">
+        <i data-lucide="download" class="w-4 h-4"></i>
+        <span>Tải ảnh Full HD (PNG)</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+
+    <!-- Controls Panel (Left Sidebar) -->
+    <aside class="w-full lg:w-[460px] xl:w-[490px] bg-slate-900/95 border-r border-teal-900/40 flex flex-col h-auto lg:h-[calc(100vh-61px)] overflow-y-auto">
+      
+      <!-- Tabs header -->
+      <div class="grid grid-cols-3 bg-slate-950/80 p-1.5 border-b border-teal-900/30 sticky top-0 z-20 backdrop-blur">
+        <button data-tab="tab-content" class="tab-btn active py-2 text-xs font-semibold rounded-lg text-center flex flex-col items-center gap-1 text-amber-300 bg-brand-darkteal/90 border border-teal-700/60 shadow">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          <span>Nội dung Deal</span>
+        </button>
+        <button data-tab="tab-avatar" class="tab-btn py-2 text-xs font-semibold rounded-lg text-center flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200">
+          <i data-lucide="user-check" class="w-4 h-4"></i>
+          <span>Ảnh chân dung</span>
+        </button>
+        <button data-tab="tab-template" class="tab-btn py-2 text-xs font-semibold rounded-lg text-center flex flex-col items-center gap-1 text-slate-400 hover:text-slate-200">
+          <i data-lucide="image" class="w-4 h-4"></i>
+          <span>Phôi & Tuỳ chọn</span>
+        </button>
+      </div>
+
+      <!-- Tab 1: Nội dung -->
+      <div id="tab-content" class="tab-content-pane p-4 sm:p-5 space-y-4">
+        
+        <!-- Khối thông tin cán bộ -->
+        <div class="bg-slate-800/50 rounded-xl p-4 border border-teal-900/40 space-y-3">
+          <h2 class="text-xs font-bold text-amber-300 flex items-center gap-1.5 uppercase tracking-wider">
+            <i data-lucide="user" class="w-4 h-4 text-teal-400"></i> Thông tin Cán Bộ</h2>
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Họ và tên cán bộ <span class="text-amber-400">*</span></label>
+            <input type="text" id="officerName" placeholder="Họ và tên cán bộ" class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-sm text-amber-300 font-bold tracking-wide focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Phòng ban & Chi nhánh BIDV <span class="text-amber-400">*</span></label>
+            <input type="text" id="officerUnit" value="Phòng ...... - Chi nhánh BIDV ........." placeholder="theo gợi ý" class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
+            <p class="text-[10px] text-slate-400 mt-1 italic">Gợi ý mẫu: "Phòng ...... - Chi nhánh BIDV ........."</p>
+          </div>
+        </div>
+
+        <!-- Khối thông tin Big Deal -->
+        <div class="bg-slate-800/50 rounded-xl p-4 border border-teal-900/40 space-y-3.5">
+          <h2 class="text-xs font-bold text-amber-300 flex items-center gap-1.5 uppercase tracking-wider">
+            <i data-lucide="trending-up" class="w-4 h-4 text-amber-400"></i> Thông tin Món Phí Big Deal
+          </h2>
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Tiêu đề vinh danh</label>
+            <input type="text" id="dealTitle" placeholder="Tiêu đề ..." class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Số tiền phí bảo hiểm</label>
+            <div class="flex items-center gap-2">
+              <input type="text" id="dealAmount" value="" placeholder="xxx.xxx.xxx" class="flex-1 bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-sm font-black text-amber-300 tracking-wider focus:outline-none">
+              <div class="bg-amber-400/20 text-amber-300 border border-amber-400/40 px-3 py-2 rounded-lg text-xs font-black">VNĐ</div>
+            </div>
+            <p class="text-[10px] text-slate-400 mt-1 italic">Hệ thống tự động chấm hàng nghìn khi nhập số. Bỏ trống sẽ hiển thị chữ ký hiệu phôi trống.</p>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label class="text-xs font-medium text-slate-300 flex items-center gap-1.5">
+                <i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-400"></i> Ngày cấp
+              </label>
+              <div class="flex items-center gap-2">
+                <button type="button" id="btnSetDateDots" class="text-[10px] text-teal-300 hover:underline">Dạng "Ngày ..."</button>
+                <span class="text-slate-600">|</span>
+                <button type="button" id="btnSetDateToday" class="text-[10px] text-amber-300 hover:underline">Hôm nay</button>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <input type="date" id="datePicker" class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none cursor-pointer">
+              <input type="text" id="dealDate" placeholder=" 'Ngày ...' hoặc hôm nay" class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Chiến dịch vinh danh</label>
+            <input type="text" id="dealCampaign" placeholder="Ví dụ: Chiến dịch Tốc lực bứt phá đỉnh cao" class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Quý vinh danh</label>
+            <input type="text" id="dealQuarter" placeholder="Quý ..." class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tab 2: Chân dung cán bộ -->
+      <div id="tab-avatar" class="tab-content-pane p-4 sm:p-5 space-y-4 hidden">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <h2 class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+            <i data-lucide="camera" class="w-4 h-4 text-teal-400"></i> Ảnh chân dung cán bộ
+          </h2>
+          <button id="btnRemoveAvatar" class="text-xs text-rose-400 hover:underline">Gỡ ảnh</button>
+        </div>
+
+        <!-- Upload file ảnh -->
+        <label class="flex flex-col items-center justify-center p-6 border-2 border-dashed border-teal-700/60 hover:border-amber-400 rounded-xl cursor-pointer bg-slate-800/40 hover:bg-slate-800/80 transition group text-center">
+          <i data-lucide="upload-cloud" class="w-9 h-9 text-teal-400 group-hover:text-amber-400 transition mb-2"></i>
+          <span class="text-xs font-semibold text-slate-200">Tải ảnh chân dung của cán bộ lên</span>
+          <span class="text-[11px] text-slate-400 mt-1">Hỗ trợ JPG, PNG (tự động cắt bo tròn trong nguyệt quế)</span>
+          <input type="file" id="avatarFileInput" accept="image/*" class="hidden">
+        </label>
+
+        <!-- Tinh chỉnh Avatar -->
+        <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 space-y-3.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-semibold text-slate-200 flex items-center gap-1.5">
+              <i data-lucide="sliders" class="w-3.5 h-3.5 text-amber-400"></i> Căn chỉnh vị trí & kích cỡ
+            </span>
+            <button id="btnResetAvatarPos" class="text-[11px] text-teal-400 hover:underline">Căn giữa</button>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-slate-300 mb-1">
+              <span>Phóng to / Thu nhỏ (Zoom):</span>
+              <span id="zoomVal" class="text-amber-400 font-mono">100%</span>
+            </div>
+            <input type="range" id="avatarZoom" min="40" max="250" value="100" class="w-full accent-amber-400 cursor-pointer">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-slate-300 mb-1">
+              <span>Xoay ảnh (Rotate):</span>
+              <span id="rotateVal" class="text-amber-400 font-mono">0°</span>
+            </div>
+            <input type="range" id="avatarRotate" min="-180" max="180" value="0" class="w-full accent-teal-400 cursor-pointer">
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-slate-400 mb-1">Dịch ngang (Pan X):</label>
+              <input type="range" id="avatarPanX" min="-300" max="300" value="0" class="w-full accent-teal-400 cursor-pointer">
+            </div>
+            <div>
+              <label class="block text-slate-400 mb-1">Dịch dọc (Pan Y):</label>
+              <input type="range" id="avatarPanY" min="-300" max="300" value="0" class="w-full accent-teal-400 cursor-pointer">
+            </div>
+          </div>
+
+          <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg text-[11px] text-amber-200 leading-relaxed">
+            <strong class="text-amber-300">Mẹo thao tác:</strong> Bạn có thể dùng chuột hoặc chạm ngón tay kéo trực tiếp vào vòng tròn trên ảnh để căn chỉnh góc mặt một cách tự nhiên nhất!
+          </div>
+        </div>
+
+        <!-- Chế độ hiển thị phôi ảnh mặc định -->
+        <div class="bg-slate-800/40 p-3 rounded-xl border border-slate-800 flex items-center justify-between text-xs">
+          <span>Sử dụng hình vẽ phôi mặc định (Đồi mây) khi chưa có ảnh:</span>
+          <input type="checkbox" id="checkDefaultIllustration" checked class="rounded border-slate-700 text-amber-400 focus:ring-0">
+        </div>
+      </div>
+
+      <!-- Tab 3: Phôi nền & Tùy chọn -->
+      <div id="tab-template" class="tab-content-pane p-4 sm:p-5 space-y-4 hidden">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <h2 class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+            <i data-lucide="layers" class="w-4 h-4 text-teal-400"></i> Phôi nền (Background Template)
+          </h2>
+          <button id="btnRestoreVectorBg" class="text-xs text-teal-400 hover:underline">Dùng phôi AI</button>
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Nạp file ảnh phôi riêng</label>
+          <label class="flex items-center justify-center p-3.5 border-2 border-dashed border-slate-700 hover:border-amber-400 rounded-xl cursor-pointer bg-slate-800/40 hover:bg-slate-800/80 transition text-center group">
+            <i data-lucide="upload" class="w-4 h-4 text-teal-400 group-hover:text-amber-400 mr-2"></i>
+            <span class="text-xs text-slate-200">Chọn file ảnh phôi (JPG, PNG tỉ lệ 16:9)</span>
+            <input type="file" id="customBgInput" accept="image/*" class="hidden">
+          </label>
+          <p class="text-[11px] text-slate-400 mt-1 italic">* Ứng dụng đã tích hợp sẵn phôi AI, bạn có thể nạp phôi ảnh riêng nếu không ưng ý.</p>
+        </div>
+
+        <div class="space-y-3 pt-2">
+          <h3 class="text-xs font-bold text-amber-300 uppercase tracking-wider">Cấu hình hiển thị chi tiết</h3>
+
+          <label class="flex items-center gap-2.5 cursor-pointer text-xs text-slate-300">
+            <input type="checkbox" id="toggleLaurel" checked class="rounded border-slate-700 text-amber-400 focus:ring-0">
+            <span>Hiển thị Vòng nguyệt quế mạ vàng kim (AI thiết kế)</span>
+          </label>
+
+          <label class="flex items-center gap-2.5 cursor-pointer text-xs text-slate-300">
+            <input type="checkbox" id="toggleSparkles" checked class="rounded border-slate-700 text-amber-400 focus:ring-0">
+            <span>Hiển thị chùm ánh sao lấp lánh (AI thiết kế)</span>
+          </label>
+
+          <label class="flex items-center gap-2.5 cursor-pointer text-xs text-slate-300">
+            <input type="checkbox" id="toggleBrandLogos" checked class="rounded border-slate-700 text-amber-400 focus:ring-0">
+            <span>Hiển thị logo BIC & BIDV trên góc banner (AI thiết kế)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Footer Info inside sidebar -->
+      <div class="mt-auto p-4 border-t border-slate-800 bg-slate-950/60 text-[11px] text-slate-400 flex items-center justify-between">
+        <span>Độ phân giải xuất: <strong class="text-teal-300 font-mono">1920 × 1080 px</strong></span>
+        <span class="text-emerald-400 flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5"></i> Tự động lưu</span>
+      </div>
+    </aside>
+
+    <!-- Canvas Preview Panel (Right Side) -->
+    <section class="flex-1 bg-slate-950 flex flex-col items-center justify-center p-3 sm:p-5 lg:p-6 overflow-hidden relative min-h-[460px]">
+      
+      <!-- Canvas Control Bar -->
+      <div class="w-full max-w-5xl flex items-center justify-between pb-3 text-xs text-slate-400">
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="font-semibold text-slate-300">Xem trước trực tiếp Canvas</span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button id="zoomCanvasOut" title="Thu nhỏ" class="p-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition">
+            <i data-lucide="minus" class="w-3.5 h-3.5"></i>
+          </button>
+          <span id="canvasZoomDisplay" class="font-mono text-slate-300 text-xs px-1">100%</span>
+          <button id="zoomCanvasIn" title="Phóng to" class="p-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+          </button>
+          <button id="zoomCanvasFit" title="Vừa màn hình" class="px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition flex items-center gap-1">
+            <i data-lucide="maximize" class="w-3 h-3"></i>
+            <span class="hidden sm:inline">Vừa màn hình</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Canvas Frame Container -->
+      <div id="canvasWrapper" class="relative max-w-full max-h-[82vh] flex items-center justify-center rounded-2xl p-2 bg-gradient-to-b from-teal-900/20 via-slate-900/40 to-slate-950 border border-teal-500/20 shadow-2xl overflow-hidden">
+        <canvas id="dealCanvas" width="1920" height="1080" class="max-w-full h-auto cursor-grab active:cursor-grabbing rounded-xl shadow-2xl bg-teal-950 transition-transform duration-75"></canvas>
+      </div>
+
+      <!-- Quick note -->
+      <p class="mt-3 text-[11px] text-slate-400 flex items-center gap-1.5 text-center">
+        <i data-lucide="mouse-pointer" class="w-3.5 h-3.5 text-amber-400 flex-shrink-0"></i>
+        <span>Nhấp giữ và kéo chuột trong vòng tròn để căn chỉnh vị trí khuôn mặt cán bộ.</span>
+      </p>
+
+      <!-- Toast Feedback Message -->
+      <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-3 bg-slate-900 text-white px-4 py-3 rounded-xl border border-teal-500 shadow-2xl">
+        <div id="toastIcon" class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-xs">✓</div>
+        <div id="toastText" class="text-xs font-semibold">Đã cập nhật thành công!</div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    // Khởi tạo icons Lucide
+    lucide.createIcons();
+
+    // Lấy Canvas & Context
+    const canvas = document.getElementById('dealCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // DOM Inputs & Controls
+    const officerName = document.getElementById('officerName');
+    const officerUnit = document.getElementById('officerUnit');
+    const dealTitle = document.getElementById('dealTitle');
+    const dealAmount = document.getElementById('dealAmount');
+    const dealDate = document.getElementById('dealDate');
+    const datePicker = document.getElementById('datePicker');
+    const btnSetDateDots = document.getElementById('btnSetDateDots');
+    const btnSetDateToday = document.getElementById('btnSetDateToday');
+    const dealCampaign = document.getElementById('dealCampaign');
+    const dealQuarter = document.getElementById('dealQuarter');
+
+    // Avatar Controls
+    const avatarFileInput = document.getElementById('avatarFileInput');
+    const btnRemoveAvatar = document.getElementById('btnRemoveAvatar');
+    const avatarZoom = document.getElementById('avatarZoom');
+    const zoomVal = document.getElementById('zoomVal');
+    const avatarRotate = document.getElementById('avatarRotate');
+    const rotateVal = document.getElementById('rotateVal');
+    const avatarPanX = document.getElementById('avatarPanX');
+    const avatarPanY = document.getElementById('avatarPanY');
+    const btnResetAvatarPos = document.getElementById('btnResetAvatarPos');
+    const checkDefaultIllustration = document.getElementById('checkDefaultIllustration');
+
+    // Template Controls
+    const customBgInput = document.getElementById('customBgInput');
+    const btnRestoreVectorBg = document.getElementById('btnRestoreVectorBg');
+    const toggleLaurel = document.getElementById('toggleLaurel');
+    const toggleSparkles = document.getElementById('toggleSparkles');
+    const toggleBrandLogos = document.getElementById('toggleBrandLogos');
+
+    // Actions & Zoom
+    const btnResetDefault = document.getElementById('btnResetDefault');
+    const btnDownloadHD = document.getElementById('btnDownloadHD');
+    const btnCopyClipboard = document.getElementById('btnCopyClipboard');
+    const zoomCanvasIn = document.getElementById('zoomCanvasIn');
+    const zoomCanvasOut = document.getElementById('zoomCanvasOut');
+    const zoomCanvasFit = document.getElementById('zoomCanvasFit');
+    const canvasZoomDisplay = document.getElementById('canvasZoomDisplay');
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toastText');
+
+    // Tọa độ chuẩn hóa theo tỷ lệ mẫu (1920x1080)
+    const POS = {
+      avatar: {
+        x: 520,
+        y: 535,
+        radius: 206
+      },
+      card: {
+        x: 930,
+        y: 370,
+        width: 820,
+        height: 395,
+        radius: 26
+      },
+      officerText: {
+        x: 160,
+        y: 890
+      }
+    };
+
+    // State ứng dụng
+    let userAvatarImg = null;
+    let customBackgroundImg = null;
+    let viewZoom = 1.0;
+
+    let avatarState = {
+      panX: 0,
+      panY: 0,
+      scale: 1.0,
+      rotation: 0
+    };
+
+    let isDragging = false;
+    let dragStart = { x: 0, y: 0 };
+    let panStart = { x: 0, y: 0 };
+
+    // Tabs switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('active', 'text-amber-300', 'bg-brand-darkteal/90', 'border', 'border-teal-700/60', 'shadow');
+          b.classList.add('text-slate-400');
+        });
+        document.querySelectorAll('.tab-content-pane').forEach(p => p.classList.add('hidden'));
+
+        btn.classList.add('active', 'text-amber-300', 'bg-brand-darkteal/90', 'border', 'border-teal-700/60', 'shadow');
+        btn.classList.remove('text-slate-400');
+        const target = btn.dataset.tab;
+        document.getElementById(target).classList.remove('hidden');
+      });
+    });
+
+    // Định dạng tiền tệ tự động
+    function formatThousands(val) {
+      const clean = val.replace(/\D/g, '');
+      if (!clean) return '';
+      return clean.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    dealAmount.addEventListener('input', (e) => {
+      const val = e.target.value;
+      if (/^\d[\d.]*$/.test(val)) {
+        e.target.value = formatThousands(val);
+      }
+      persistState();
+      render();
+    });
+
+    // Date picker sync
+    datePicker.addEventListener('change', (e) => {
+      if (e.target.value) {
+        const [y, m, d] = e.target.value.split('-');
+        dealDate.value = `${d}/${m}/${y}`;
+        persistState();
+        render();
+      }
+    });
+
+    btnSetDateDots.addEventListener('click', () => {
+      dealDate.value = 'Ngày ...';
+      persistState();
+      render();
+    });
+
+    btnSetDateToday.addEventListener('click', () => {
+      const now = new Date();
+      const d = String(now.getDate()).padStart(2, '0');
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const y = now.getFullYear();
+      dealDate.value = `${d}/${m}/${y}`;
+      datePicker.value = `${y}-${m}-${d}`;
+      persistState();
+      render();
+    });
+
+    // Upload Avatar
+    avatarFileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const img = new Image();
+          img.onload = () => {
+            userAvatarImg = img;
+            resetAvatar();
+            showToast('Đã tải ảnh chân dung thành công!');
+            persistState();
+            render();
+          };
+          img.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    btnRemoveAvatar.addEventListener('click', () => {
+      userAvatarImg = null;
+      avatarFileInput.value = '';
+      showToast('Đã gỡ ảnh chân dung.');
+      persistState();
+      render();
+    });
+
+    function resetAvatar() {
+      avatarState.panX = 0;
+      avatarState.panY = 0;
+      avatarState.scale = 1.0;
+      avatarState.rotation = 0;
+      avatarZoom.value = 100;
+      zoomVal.textContent = '100%';
+      avatarRotate.value = 0;
+      rotateVal.textContent = '0°';
+      avatarPanX.value = 0;
+      avatarPanY.value = 0;
+    }
+
+    btnResetAvatarPos.addEventListener('click', () => {
+      resetAvatar();
+      render();
+    });
+
+    avatarZoom.addEventListener('input', (e) => {
+      avatarState.scale = parseInt(e.target.value) / 100;
+      zoomVal.textContent = e.target.value + '%';
+      render();
+    });
+
+    avatarRotate.addEventListener('input', (e) => {
+      avatarState.rotation = parseInt(e.target.value);
+      rotateVal.textContent = e.target.value + '°';
+      render();
+    });
+
+    avatarPanX.addEventListener('input', (e) => {
+      avatarState.panX = parseInt(e.target.value);
+      render();
+    });
+
+    avatarPanY.addEventListener('input', (e) => {
+      avatarState.panY = parseInt(e.target.value);
+      render();
+    });
+
+    // Custom Background Upload
+    customBgInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const img = new Image();
+          img.onload = () => {
+            customBackgroundImg = img;
+            showToast('Đã áp dụng phôi nền riêng của bạn!');
+            render();
+          };
+          img.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    btnRestoreVectorBg.addEventListener('click', () => {
+      customBackgroundImg = null;
+      customBgInput.value = '';
+      showToast('Đã phục hồi phôi AI!');
+      render();
+    });
+
+    // Auto update on all text inputs
+    [officerName, officerUnit, dealTitle, dealDate, dealCampaign, dealQuarter].forEach(input => {
+      input.addEventListener('input', () => {
+        persistState();
+        render();
+      });
+    });
+
+    [checkDefaultIllustration, toggleLaurel, toggleSparkles, toggleBrandLogos].forEach(chk => {
+      chk.addEventListener('change', () => {
+        persistState();
+        render();
+      });
+    });
+
+    // Reset All Defaults
+    btnResetDefault.addEventListener('click', () => {
+      officerName.value = '...';
+      officerUnit.value = 'Phòng ...... - Chi nhánh BIDV .........';
+      dealTitle.value = 'Tiêu đề vinh danh ...';
+      dealAmount.value = '';
+      dealDate.value = 'Ngày ...';
+      dealCampaign.value = 'Chiến dịch ...';
+      dealQuarter.value = 'Quý ...';
+      checkDefaultIllustration.checked = true;
+      toggleLaurel.checked = true;
+      toggleSparkles.checked = true;
+      toggleBrandLogos.checked = true;
+      customBackgroundImg = null;
+      userAvatarImg = null;
+      resetAvatar();
+      persistState();
+      showToast('Đã phục hồi mẫu phôi mặc định ban đầu!');
+      render();
+    });
+
+    // ==========================================
+    // CÁC HÀM ĐỒ HỌA CANVAS CHÍNH XÁC NGUYÊN MẪU
+    // ==========================================
+
+    // Vẽ phôi nền Vector chất lượng cao
+    function drawVectorBackground() {
+      const W = canvas.width;
+      const H = canvas.height;
+
+      // 1. Nền chuyển sắc Deep Emerald & Teal đặc trưng của BIDV & BIC
+      const bgGrad = ctx.createRadialGradient(W * 0.38, H * 0.35, 80, W * 0.5, H * 0.5, 1250);
+      bgGrad.addColorStop(0, '#0c6f66');
+      bgGrad.addColorStop(0.35, '#04554d');
+      bgGrad.addColorStop(0.7, '#023832');
+      bgGrad.addColorStop(1, '#01211d');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, W, H);
+
+      // Luồng sáng rạng đông chiếu từ góc trên bên trái
+      const sunBeam = ctx.createRadialGradient(0, 0, 0, 0, 0, 950);
+      sunBeam.addColorStop(0, 'rgba(255, 255, 235, 0.45)');
+      sunBeam.addColorStop(0.3, 'rgba(45, 212, 191, 0.22)');
+      sunBeam.addColorStop(0.7, 'rgba(13, 148, 136, 0.08)');
+      sunBeam.addColorStop(1, 'transparent');
+      ctx.fillStyle = sunBeam;
+      ctx.fillRect(0, 0, W, H);
+
+      // 2. Các đường lượn sóng năng lượng ánh sáng ở góc dưới
+      ctx.save();
+      for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(94, 234, 212, ${0.15 - i * 0.028})`;
+        ctx.lineWidth = 3 - i * 0.4;
+        ctx.moveTo(0, H * 0.78 + i * 35);
+        ctx.bezierCurveTo(W * 0.3, H * 0.96 - i * 25, W * 0.65, H * 0.70 + i * 20, W, H * 0.88);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // 3. Đồ thị cột kinh doanh tăng trưởng ở góc phải trên
+      ctx.save();
+      const chartX = W * 0.69;
+      const chartY = H * 0.37;
+      const colWidth = 22;
+      const colGap = 16;
+      const heights = [60, 90, 120, 150, 190, 235, 275, 320];
+
+      heights.forEach((h, index) => {
+        const x = chartX + index * (colWidth + colGap);
+        const y = chartY - h;
+        const colGrad = ctx.createLinearGradient(x, y, x, chartY);
+        colGrad.addColorStop(0, 'rgba(94, 234, 212, 0.35)');
+        colGrad.addColorStop(1, 'rgba(94, 234, 212, 0.04)');
+        ctx.fillStyle = colGrad;
+        ctx.fillRect(x, y, colWidth, h);
+
+        // Vệt vàng trên đỉnh cột
+        ctx.fillStyle = 'rgba(253, 224, 71, 0.6)';
+        ctx.fillRect(x, y - 2, colWidth, 2.5);
+      });
+
+      // Đường sóng line chart mỏng phía sau
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(250, 204, 21, 0.45)';
+      ctx.lineWidth = 2.5;
+      heights.forEach((h, index) => {
+        const x = chartX + index * (colWidth + colGap) + colWidth / 2;
+        const y = chartY - h - 8;
+        if (index === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+      ctx.restore();
+
+      // 4. Mũi tên tăng trưởng vàng kim 3D (Golden Growth Arrow)
+      ctx.save();
+      ctx.shadowColor = 'rgba(234, 179, 8, 0.65)';
+      ctx.shadowBlur = 35;
+
+      const arrowGrad = ctx.createLinearGradient(W * 0.77, H * 0.39, W * 0.95, H * 0.12);
+      arrowGrad.addColorStop(0, '#b45309');
+      arrowGrad.addColorStop(0.25, '#facc15');
+      arrowGrad.addColorStop(0.5, '#fef08a');
+      arrowGrad.addColorStop(0.85, '#eab308');
+      arrowGrad.addColorStop(1, '#ffffff');
+
+      ctx.beginPath();
+      ctx.moveTo(W * 0.78, H * 0.37);
+      ctx.quadraticCurveTo(W * 0.85, H * 0.29, W * 0.93, H * 0.16);
+      // Đầu mũi tên nhọn
+      ctx.lineTo(W * 0.90, H * 0.185);
+      ctx.lineTo(W * 0.965, H * 0.115);
+      ctx.lineTo(W * 0.94, H * 0.245);
+      ctx.lineTo(W * 0.92, H * 0.215);
+      ctx.quadraticCurveTo(W * 0.845, H * 0.34, W * 0.78, H * 0.43);
+      ctx.closePath();
+      ctx.fillStyle = arrowGrad;
+      ctx.fill();
+      ctx.restore();
+
+      // Sao sáng rực tại mũi tên
+      drawSparkle(W * 0.958, H * 0.125, 26, 4);
+
+      // 5. Ngọn núi thành công & 3 chiến binh nâng cờ (Silhouette)
+      ctx.save();
+      const mountainGrad = ctx.createLinearGradient(W * 0.65, H, W * 0.86, H * 0.85);
+      mountainGrad.addColorStop(0, '#01201b');
+      mountainGrad.addColorStop(0.4, '#033a34');
+      mountainGrad.addColorStop(1, '#0d9488');
+      ctx.fillStyle = mountainGrad;
+      ctx.beginPath();
+      ctx.moveTo(W * 0.65, H);
+      ctx.quadraticCurveTo(W * 0.77, H * 0.89, W * 0.86, H * 0.91);
+      ctx.quadraticCurveTo(W * 0.94, H * 0.92, W, H * 0.98);
+      ctx.lineTo(W, H);
+      ctx.closePath();
+      ctx.fill();
+
+      // Hào quang vàng phía sau 3 chiến binh
+      const heroGlow = ctx.createRadialGradient(W * 0.83, H * 0.88, 10, W * 0.83, H * 0.88, 200);
+      heroGlow.addColorStop(0, 'rgba(254, 240, 138, 0.45)');
+      heroGlow.addColorStop(0.4, 'rgba(45, 212, 191, 0.2)');
+      heroGlow.addColorStop(1, 'transparent');
+      ctx.fillStyle = heroGlow;
+      ctx.beginPath();
+      ctx.arc(W * 0.83, H * 0.88, 200, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 3 người chiến binh vinh quang
+      drawMiniWarrior(W * 0.795, H * 0.885, 0.86, false); // người trái
+      drawMiniWarrior(W * 0.835, H * 0.865, 1.05, true);  // người giữa giương cờ
+      drawMiniWarrior(W * 0.875, H * 0.89, 0.9, false);   // người phải ăn mừng
+
+      ctx.restore();
+
+      // 6. Chữ tiêu đề trên phôi: "Vinh danh BIG DEAL"
+      ctx.save();
+      // Chữ "Vinh danh" thư pháp mềm mại
+      ctx.font = 'italic 700 52px "Playfair Display", serif';
+      ctx.fillStyle = '#fef08a';
+      ctx.shadowColor = 'rgba(0,0,0,0.6)';
+      ctx.shadowBlur = 10;
+      ctx.fillText('Vinh danh', 210, 175);
+
+      // Chữ "BIG DEAL" in hoa vàng kim nổi khối 3D
+      ctx.font = '900 80px "Montserrat", sans-serif';
+      const bigDealGrad = ctx.createLinearGradient(210, 200, 210, 275);
+      bigDealGrad.addColorStop(0, '#FFFFFF');
+      bigDealGrad.addColorStop(0.25, '#FEF08A');
+      bigDealGrad.addColorStop(0.65, '#EAB308');
+      bigDealGrad.addColorStop(1, '#854D0E');
+
+      ctx.fillStyle = bigDealGrad;
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+      ctx.shadowOffsetX = 3;
+      ctx.shadowOffsetY = 6;
+      ctx.shadowBlur = 16;
+      ctx.fillText('BIG DEAL', 210, 265);
+
+      // Viền nét mảnh vàng rực
+      ctx.strokeStyle = '#FEF08A';
+      ctx.lineWidth = 1.5;
+      ctx.strokeText('BIG DEAL', 210, 265);
+      ctx.restore();
+    }
+
+    // Vẽ bóng chiến binh
+    function drawMiniWarrior(x, y, scale = 1, hasFlag = false) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(scale, scale);
+
+      ctx.fillStyle = '#032622';
+      ctx.beginPath();
+      ctx.arc(0, -70, 9, 0, Math.PI * 2);
+      ctx.rect(-10, -58, 20, 36);
+      ctx.rect(-11, -22, 9, 32);
+      ctx.rect(2, -22, 9, 32);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.lineWidth = 5;
+      ctx.strokeStyle = '#032622';
+      if (hasFlag) {
+        ctx.moveTo(-8, -52);
+        ctx.lineTo(-14, -80);
+        ctx.moveTo(8, -52);
+        ctx.lineTo(16, -82);
+        ctx.stroke();
+
+        ctx.strokeStyle = '#fef08a';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(16, -20);
+        ctx.lineTo(16, -130);
+        ctx.stroke();
+
+        ctx.fillStyle = '#facc15';
+        ctx.beginPath();
+        ctx.moveTo(16, -130);
+        ctx.quadraticCurveTo(42, -122, 58, -126);
+        ctx.lineTo(42, -98);
+        ctx.lineTo(16, -104);
+        ctx.closePath();
+        ctx.fill();
+      } else {
+        ctx.moveTo(-8, -52);
+        ctx.lineTo(-20, -76);
+        ctx.moveTo(8, -52);
+        ctx.lineTo(20, -76);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    // Vẽ Logo BIC & BIDV
+    function drawLogos() {
+      if (!toggleBrandLogos.checked) return;
+
+      ctx.save();
+      // Logo BIC ở góc trái
+      ctx.font = '900 48px "Montserrat", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = 'rgba(0,0,0,0.5)';
+      ctx.shadowBlur = 8;
+      ctx.fillText('BIC', 140, 95);
+
+      // Icon BIC cánh hoa
+      ctx.save();
+      ctx.translate(242, 80);
+      ctx.fillStyle = '#f97316';
+      ctx.beginPath();
+      ctx.ellipse(-6, 0, 14, 8, Math.PI / 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#facc15';
+      ctx.beginPath();
+      ctx.ellipse(6, 0, 14, 8, -Math.PI / 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // Logo BIDV ở góc phải
+      ctx.font = '900 48px "Montserrat", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('BIDV', 1605, 95);
+
+      // Bông mai vàng BIDV 5 cánh
+      ctx.save();
+      ctx.translate(1738, 80);
+      ctx.fillStyle = '#eab308';
+      for (let i = 0; i < 5; i++) {
+        ctx.beginPath();
+        ctx.ellipse(0, -9, 6.5, 9.5, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.rotate((Math.PI * 2) / 5);
+      }
+      ctx.beginPath();
+      ctx.arc(0, 0, 5, 0, Math.PI * 2);
+      ctx.fillStyle = '#0f766e';
+      ctx.fill();
+      ctx.restore();
+
+      ctx.restore();
+    }
+
+    // Vẽ tia sáng lấp lánh (Sparkle)
+    function drawSparkle(x, y, size, spikes = 4) {
+      ctx.save();
+      ctx.translate(x, y);
+
+      const glow = ctx.createRadialGradient(0, 0, 0, 0, 0, size * 2.2);
+      glow.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
+      glow.addColorStop(0.35, 'rgba(254, 240, 138, 0.5)');
+      glow.addColorStop(1, 'rgba(254, 240, 138, 0)');
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(0, 0, size * 2.2, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      for (let i = 0; i < spikes; i++) {
+        ctx.rotate(Math.PI / spikes);
+        ctx.moveTo(-size * 0.16, 0);
+        ctx.lineTo(0, size * 1.7);
+        ctx.lineTo(size * 0.16, 0);
+        ctx.lineTo(0, -size * 1.7);
+      }
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Vẽ hình minh họa đồi mây mặc định của phôi ảnh gốc
+    function drawDefaultIllustration(x, y, radius) {
+      ctx.save();
+      // Nền trời xanh mát
+      const skyGrad = ctx.createLinearGradient(x, y - radius, x, y + radius);
+      skyGrad.addColorStop(0, '#e0f2fe');
+      skyGrad.addColorStop(0.6, '#bae6fd');
+      skyGrad.addColorStop(1, '#a7f3d0');
+      ctx.fillStyle = skyGrad;
+      ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+
+      // Đám mây trắng mềm mại
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(x - 20, y - 80, 40, 0, Math.PI * 2);
+      ctx.arc(x + 25, y - 70, 32, 0, Math.PI * 2);
+      ctx.arc(x - 60, y - 65, 25, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Đồi cỏ xanh lớp sau
+      ctx.fillStyle = '#a3e635';
+      ctx.beginPath();
+      ctx.moveTo(x - radius, y + 60);
+      ctx.quadraticCurveTo(x, y + 10, x + radius, y + 80);
+      ctx.lineTo(x + radius, y + radius);
+      ctx.lineTo(x - radius, y + radius);
+      ctx.closePath();
+      ctx.fill();
+
+      // Đồi cỏ xanh lớp trước
+      ctx.fillStyle = '#65a30d';
+      ctx.beginPath();
+      ctx.moveTo(x - radius, y + 100);
+      ctx.quadraticCurveTo(x + 20, y + 45, x + radius, y + 120);
+      ctx.lineTo(x + radius, y + radius);
+      ctx.lineTo(x - radius, y + radius);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    // Vẽ Vòng nguyệt quế vàng kim (Golden Laurel Wreath)
+    function drawGoldenLaurelWreath(cx, cy, radius) {
+      if (!toggleLaurel.checked) return;
+
+      ctx.save();
+      ctx.translate(cx, cy);
+
+      const goldGrad = ctx.createLinearGradient(-radius, -radius, radius, radius);
+      goldGrad.addColorStop(0, '#FFFBEB');
+      goldGrad.addColorStop(0.3, '#FDE047');
+      goldGrad.addColorStop(0.7, '#D97706');
+      goldGrad.addColorStop(1, '#78350F');
+
+      ctx.shadowColor = 'rgba(234, 179, 8, 0.7)';
+      ctx.shadowBlur = 20;
+
+      // Nhánh trái và nhánh phải
+      [-1, 1].forEach(side => {
+        ctx.save();
+        ctx.scale(side, 1);
+
+        // Cuống nhánh cây uốn lượn
+        ctx.strokeStyle = goldGrad;
+        ctx.lineWidth = 3.5;
+        ctx.beginPath();
+        ctx.arc(0, 0, radius + 14, Math.PI * 0.38, Math.PI * 0.98, false);
+        ctx.stroke();
+
+        // 13 chùm lá vàng
+        const leafCount = 13;
+        for (let i = 0; i < leafCount; i++) {
+          const t = i / (leafCount - 1);
+          const angle = Math.PI * 0.44 + t * (Math.PI * 0.54);
+          const r = radius + 15;
+          const lx = Math.cos(angle) * r;
+          const ly = Math.sin(angle) * r;
+
+          ctx.save();
+          ctx.translate(lx, ly);
+          ctx.rotate(angle + Math.PI / 2 + 0.3);
+
+          ctx.fillStyle = goldGrad;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, 9, 20, 0.4, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.ellipse(9, -4, 7, 15, -0.3, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.restore();
+        }
+
+        ctx.restore();
+      });
+
+      // Điểm giao nhau ở đáy
+      ctx.fillStyle = goldGrad;
+      ctx.beginPath();
+      ctx.ellipse(0, radius + 14, 14, 8, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Dải ruy băng nơ vàng
+      ctx.strokeStyle = goldGrad;
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(-10, radius + 14);
+      ctx.quadraticCurveTo(-25, radius + 35, -35, radius + 48);
+      ctx.moveTo(10, radius + 14);
+      ctx.quadraticCurveTo(25, radius + 35, 35, radius + 48);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    // Vẽ Avatar vào khung tròn
+    function drawAvatar() {
+      const { x, y, radius } = POS.avatar;
+
+      ctx.save();
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.65)';
+      ctx.shadowBlur = 35;
+      ctx.shadowOffsetY = 12;
+
+      // 1. Cắt mặt nạ tròn
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.save();
+      ctx.clip();
+
+      if (userAvatarImg) {
+        // Tinh chỉnh theo Pan, Zoom, Rotate
+        ctx.translate(x + avatarState.panX, y + avatarState.panY);
+        ctx.rotate((avatarState.rotation * Math.PI) / 180);
+        ctx.scale(avatarState.scale, avatarState.scale);
+
+        const diameter = radius * 2;
+        const aspect = userAvatarImg.width / userAvatarImg.height;
+        let dw = diameter;
+        let dh = diameter;
+
+        if (aspect > 1) {
+          dw = diameter * aspect;
+        } else {
+          dh = diameter / aspect;
+        }
+
+        ctx.drawImage(userAvatarImg, -dw / 2, -dh / 2, dw, dh);
+      } else if (checkDefaultIllustration.checked) {
+        // Vẽ tranh minh họa mặc định chuẩn phôi
+        drawDefaultIllustration(x, y, radius);
+      } else {
+        ctx.fillStyle = '#064e4b';
+        ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+      }
+      ctx.restore(); // gỡ clip
+
+      // 2. Viền hào quang vàng quanh hình tròn
+      ctx.save();
+      const ringGrad = ctx.createLinearGradient(x - radius, y - radius, x + radius, y + radius);
+      ringGrad.addColorStop(0, '#FFFFFF');
+      ringGrad.addColorStop(0.25, '#FEF08A');
+      ringGrad.addColorStop(0.6, '#FACC15');
+      ringGrad.addColorStop(0.9, '#CA8A04');
+      ringGrad.addColorStop(1, '#FEF08A');
+
+      ctx.strokeStyle = ringGrad;
+      ctx.lineWidth = 6;
+      ctx.shadowColor = 'rgba(250, 204, 21, 0.8)';
+      ctx.shadowBlur = 22;
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+
+      // 3. Vòng nguyệt quế vàng
+      drawGoldenLaurelWreath(x, y, radius);
+
+      ctx.restore();
+    }
+
+    // Vẽ Thông tin Cán Bộ
+    function drawOfficerText() {
+      const { x, y } = POS.officerText;
+
+      ctx.save();
+      ctx.textAlign = 'left';
+
+      // 1. Dòng Cán bộ: [Họ và tên]
+      ctx.font = '700 38px "Montserrat", sans-serif';
+      ctx.fillStyle = '#fef08a';
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+      ctx.shadowOffsetY = 3;
+      ctx.shadowBlur = 10;
+      ctx.fillText('Cán bộ: ', x, y);
+
+      const offset = ctx.measureText('Cán bộ: ').width;
+      const rawName = (officerName.value.trim() || '...').toUpperCase();
+
+      // Hiệu ứng chữ mạ vàng kim loại nổi bật
+      ctx.font = '800 42px "Montserrat", sans-serif';
+      const nameGrad = ctx.createLinearGradient(x + offset, y - 35, x + offset, y + 10);
+      nameGrad.addColorStop(0, '#FFFFFF');
+      nameGrad.addColorStop(0.3, '#FEF08A');
+      nameGrad.addColorStop(0.7, '#FACC15');
+      nameGrad.addColorStop(1, '#EAB308');
+
+      ctx.fillStyle = nameGrad;
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+      ctx.shadowBlur = 12;
+      ctx.shadowOffsetY = 3;
+      ctx.fillText(rawName, x + offset, y);
+
+      // 2. Dòng Phòng ban & Chi nhánh
+      const unit = officerUnit.value.trim() || 'Phòng ...... - Chi nhánh BIDV .........';
+      ctx.font = '500 32px "Be Vietnam Pro", sans-serif';
+      ctx.fillStyle = '#f1f5f9';
+      ctx.shadowBlur = 8;
+      ctx.shadowOffsetY = 2;
+      ctx.fillText(unit, x, y + 62);
+
+      ctx.restore();
+    }
+
+    // Vẽ Khung Deal mạ vàng góc phải (Chuẩn 100% theo Mẫu có ảnh (1).jpg)
+    function drawCard() {
+      const { x, y, width, height, radius } = POS.card;
+
+      ctx.save();
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.45)';
+      ctx.shadowBlur = 28;
+      ctx.shadowOffsetY = 12;
+
+      // Nền kính mờ
+      const cardBg = ctx.createLinearGradient(x, y, x + width, y + height);
+      cardBg.addColorStop(0, 'rgba(4, 55, 49, 0.88)');
+      cardBg.addColorStop(0.5, 'rgba(12, 85, 77, 0.65)');
+      cardBg.addColorStop(1, 'rgba(2, 40, 36, 0.85)');
+      ctx.fillStyle = cardBg;
+
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+      ctx.fill();
+
+      // Viền vàng kim mạ cao cấp bo tròn
+      const borderGrad = ctx.createLinearGradient(x, y, x + width, y + height);
+      borderGrad.addColorStop(0, 'rgba(254, 240, 138, 0.95)');
+      borderGrad.addColorStop(0.4, 'rgba(234, 179, 8, 0.5)');
+      borderGrad.addColorStop(0.8, 'rgba(250, 204, 21, 0.9)');
+      borderGrad.addColorStop(1, 'rgba(202, 138, 4, 0.4)');
+      ctx.strokeStyle = borderGrad;
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      ctx.restore();
+
+      // =========================
+      // NỘI DUNG TRONG THẺ
+      // =========================
+      ctx.save();
+
+      // 1. Tiêu đề món phí
+      const title = dealTitle.value.trim() || 'Tiêu đề vinh danh ...';
+      ctx.font = '700 32px "Montserrat", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
+      ctx.shadowBlur = 8;
+      ctx.fillText(title, x + 40, y + 68);
+
+      // 2. Số tiền & Đơn vị VNĐ
+      const centerX = x + width / 2;
+      const centerY = y + 175;
+      const amount = dealAmount.value.trim();
+
+      if (amount) {
+        // Có số tiền cụ thể: in to nổi khối
+        ctx.font = '900 68px "Montserrat", sans-serif';
+        const moneyGrad = ctx.createLinearGradient(centerX - 150, centerY - 50, centerX + 150, centerY);
+        moneyGrad.addColorStop(0, '#FFFFFF');
+        moneyGrad.addColorStop(0.3, '#FEF08A');
+        moneyGrad.addColorStop(0.7, '#FACC15');
+        moneyGrad.addColorStop(1, '#CA8A04');
+        ctx.fillStyle = moneyGrad;
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+        ctx.shadowOffsetY = 4;
+        ctx.shadowBlur = 12;
+        ctx.textAlign = 'center';
+        ctx.fillText(amount, centerX - 50, centerY);
+
+        // Chữ VNĐ vàng kim bên phải
+        ctx.textAlign = 'right';
+        ctx.font = '900 42px "Montserrat", sans-serif';
+        ctx.fillStyle = '#facc15';
+        ctx.fillText('VNĐ', x + width - 45, centerY);
+      } else {
+        // Phôi trống chuẩn theo mẫu: Chữ VNĐ ở bên phải
+        ctx.textAlign = 'right';
+        ctx.font = '900 42px "Montserrat", sans-serif';
+        ctx.fillStyle = '#facc15';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
+        ctx.shadowBlur = 8;
+        ctx.fillText('VNĐ', x + width - 45, centerY);
+      }
+
+      // 3. Đường phân cách mạ vàng và điểm sáng lấp lánh ở giữa
+      const lineY = y + 215;
+      const sepGrad = ctx.createLinearGradient(x + 60, 0, x + width - 60, 0);
+      sepGrad.addColorStop(0, 'transparent');
+      sepGrad.addColorStop(0.25, 'rgba(254, 240, 138, 0.3)');
+      sepGrad.addColorStop(0.5, '#fde047');
+      sepGrad.addColorStop(0.75, 'rgba(254, 240, 138, 0.3)');
+      sepGrad.addColorStop(1, 'transparent');
+
+      ctx.strokeStyle = sepGrad;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x + 60, lineY);
+      ctx.lineTo(x + width - 60, lineY);
+      ctx.stroke();
+
+      // Điểm sáng kim cương vàng tại tâm đường kẻ
+      drawSparkle(centerX, lineY, 9, 4);
+
+      // 4. Ngày cấp: Dạng "Ngày ..." hoặc ngày cụ thể
+      const dateVal = dealDate.value.trim() || 'Ngày ...';
+      ctx.textAlign = 'center';
+      ctx.font = '600 24px "Be Vietnam Pro", sans-serif';
+      ctx.fillStyle = '#fef08a';
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
+      ctx.shadowBlur = 6;
+      ctx.fillText(dateVal, centerX, lineY + 38);
+
+      // 5. Tên chiến dịch: "Chiến dịch Tốc lực bứt phá đỉnh cao" (cụm "Tốc lực bứt phá đỉnh cao" in đậm)
+      const campaign = dealCampaign.value.trim() || 'Chiến dịch ...';
+      if (campaign.startsWith('Chiến dịch ')) {
+        const prefix = 'Chiến dịch ';
+        const highlight = campaign.replace('Chiến dịch ', '');
+
+        ctx.font = '400 28px "Be Vietnam Pro", sans-serif';
+        const wPrefix = ctx.measureText(prefix).width;
+        ctx.font = '800 28px "Be Vietnam Pro", sans-serif';
+        const wHighlight = ctx.measureText(highlight).width;
+        const totalW = wPrefix + wHighlight;
+
+        const startX = centerX - totalW / 2;
+
+        ctx.font = '400 28px "Be Vietnam Pro", sans-serif';
+        ctx.fillStyle = '#ffffff';
+        ctx.textAlign = 'left';
+        ctx.fillText(prefix, startX, y + 305);
+
+        ctx.font = '800 28px "Be Vietnam Pro", sans-serif';
+        ctx.fillStyle = '#ffffff';
+        ctx.fillText(highlight, startX + wPrefix, y + 305);
+      } else {
+        ctx.font = '700 28px "Be Vietnam Pro", sans-serif';
+        ctx.fillStyle = '#ffffff';
+        ctx.fillText(campaign, centerX, y + 305);
+      }
+
+      // 6. Quý vinh danh: "Bảo hiểm BIC Quý III"
+      const quarter = dealQuarter.value.trim() || 'Bảo hiểm BIC Quý ...';
+      ctx.textAlign = 'center';
+      ctx.font = '500 26px "Be Vietnam Pro", sans-serif';
+      ctx.fillStyle = '#99f6e4';
+      ctx.fillText(quarter, centerX, y + 348);
+
+      ctx.restore();
+    }
+
+    // Hiệu ứng các ngôi sao lấp lánh bao phủ banner
+    function drawSparkles() {
+      if (!toggleSparkles.checked) return;
+
+      const stars = [
+        { x: 250, y: 140, s: 12 },
+        { x: 485, y: 195, s: 15 },
+        { x: 810, y: 360, s: 10 },
+        { x: 300, y: 680, s: 13 },
+        { x: 530, y: 710, s: 14 },
+        { x: 1780, y: 340, s: 16 },
+        { x: 1440, y: 840, s: 12 }
+      ];
+
+      stars.forEach(st => {
+        drawSparkle(st.x, st.y, st.s, 4);
+      });
+    }
+
+    // ==========================================
+    // RENDER CANVAS TỔNG HỢP
+    // ==========================================
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // 1. Phôi nền (Ảnh tải lên hoặc Vector mặc định)
+      if (customBackgroundImg) {
+        ctx.drawImage(customBackgroundImg, 0, 0, canvas.width, canvas.height);
+      } else {
+        drawVectorBackground();
+      }
+
+      // 2. Logo thương hiệu
+      drawLogos();
+
+      // 3. Ảnh chân dung & Vòng nguyệt quế
+      drawAvatar();
+
+      // 4. Khối văn bản cán bộ
+      drawOfficerText();
+
+      // 5. Khung thẻ Big Deal
+      drawCard();
+
+      // 6. Ánh sao lung linh
+      drawSparkles();
+    }
+
+    // ==========================================
+    // KÉO THẢ CHUỘT / TOUCH TRỰC TIẾP TRÊN AVATAR
+    // ==========================================
+    function getCanvasCoords(e) {
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
+      };
+    }
+
+    canvas.addEventListener('mousedown', (e) => {
+      const pos = getCanvasCoords(e);
+      const { x, y, radius } = POS.avatar;
+      const dist = Math.hypot(pos.x - x, pos.y - y);
+
+      if (dist <= radius) {
+        isDragging = true;
+        dragStart = { x: pos.x, y: pos.y };
+        panStart = { x: avatarState.panX, y: avatarState.panY };
+      }
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const pos = getCanvasCoords(e);
+      const dx = pos.x - dragStart.x;
+      const dy = pos.y - dragStart.y;
+
+      avatarState.panX = panStart.x + dx;
+      avatarState.panY = panStart.y + dy;
+
+      avatarPanX.value = Math.max(-300, Math.min(300, Math.round(avatarState.panX)));
+      avatarPanY.value = Math.max(-300, Math.min(300, Math.round(avatarState.panY)));
+
+      render();
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        persistState();
+      }
+    });
+
+    // Touch events for Mobile / Tablet
+    canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        const mouseEvt = new MouseEvent('mousedown', {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        canvas.dispatchEvent(mouseEvt);
+      }
+    }, { passive: false });
+
+    window.addEventListener('touchmove', (e) => {
+      if (isDragging && e.touches.length === 1) {
+        const touch = e.touches[0];
+        const mouseEvt = new MouseEvent('mousemove', {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        window.dispatchEvent(mouseEvt);
+      }
+    }, { passive: false });
+
+    window.addEventListener('touchend', () => {
+      window.dispatchEvent(new MouseEvent('mouseup'));
+    });
+
+    // ==========================================
+    // ZOOM VIEWPORT CANVAS
+    // ==========================================
+    function applyViewZoom() {
+      canvasZoomDisplay.textContent = Math.round(viewZoom * 100) + '%';
+      canvas.style.transform = `scale(${viewZoom})`;
+      canvas.style.transformOrigin = 'center center';
+    }
+
+    zoomCanvasIn.addEventListener('click', () => {
+      if (viewZoom < 1.6) {
+        viewZoom += 0.15;
+        applyViewZoom();
+      }
+    });
+
+    zoomCanvasOut.addEventListener('click', () => {
+      if (viewZoom > 0.5) {
+        viewZoom -= 0.15;
+        applyViewZoom();
+      }
+    });
+
+    zoomCanvasFit.addEventListener('click', () => {
+      viewZoom = 1.0;
+      applyViewZoom();
+    });
+
+    // Toast notification
+    function showToast(msg, isError = false) {
+      toastText.textContent = msg;
+      toast.className = `fixed bottom-6 right-6 z-50 transform translate-y-0 opacity-100 transition-all duration-300 flex items-center gap-3 px-4 py-3 rounded-xl border shadow-2xl ${
+        isError ? 'bg-red-950 border-red-500 text-red-200' : 'bg-slate-900 border-teal-500 text-teal-100'
+      }`;
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    // ==========================================
+    // XUẤT ẢNH HD & COPY CLIPBOARD
+    // ==========================================
+    btnDownloadHD.addEventListener('click', () => {
+      render();
+      const raw = officerName.value.trim() || 'BIC-BIDV';
+      const clean = raw.replace(/[^a-zA-Z0-9à-ỹÀ-Ỹ]/g, '_');
+      const filename = `VinhDanh_BIGDEAL_${clean}.png`;
+
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png', 1.0);
+      link.click();
+      showToast('Đang tải ảnh Full HD 1920x1080 xuống máy!');
+    });
+
+    btnCopyClipboard.addEventListener('click', async () => {
+      render();
+      try {
+        canvas.toBlob(async (blob) => {
+          if (!blob) {
+            showToast('Lỗi tạo file ảnh', true);
+            return;
+          }
+          try {
+            await navigator.clipboard.write([
+              new ClipboardItem({ 'image/png': blob })
+            ]);
+            showToast('Đã sao chép ảnh! Dán ngay vào Zalo, Teams hoặc Facebook (Ctrl+V)');
+          } catch (err) {
+            // Fallback mở tab mới
+            const imgData = canvas.toDataURL('image/png');
+            const win = window.open('');
+            win.document.write(`<img src="${imgData}" style="max-width:100%"/><p style="font-family:sans-serif;margin-top:8px">Nhấp chuột phải vào ảnh và chọn "Sao chép hình ảnh"</p>`);
+            showToast('Đã mở ảnh trong tab mới để copy!');
+          }
+        }, 'image/png');
+      } catch (err) {
+        showToast('Vui lòng sử dụng nút Tải ảnh HD', true);
+      }
+    });
+
+    // ==========================================
+    // LOCALSTORAGE PERSISTENCE
+    // ==========================================
+    function persistState() {
+      const data = {
+        name: officerName.value,
+        unit: officerUnit.value,
+        title: dealTitle.value,
+        amount: dealAmount.value,
+        date: dealDate.value,
+        campaign: dealCampaign.value,
+        quarter: dealQuarter.value,
+        panX: avatarState.panX,
+        panY: avatarState.panY,
+        scale: avatarState.scale,
+        rotation: avatarState.rotation,
+        defaultIllu: checkDefaultIllustration.checked,
+        showLaurel: toggleLaurel.checked,
+        showSparkles: toggleSparkles.checked,
+        showLogos: toggleBrandLogos.checked
+      };
+      try {
+        localStorage.setItem('bigdeal_data_v2', JSON.stringify(data));
+      } catch (e) {}
+    }
+
+    function restoreState() {
+      try {
+        const raw = localStorage.getItem('bigdeal_data_v2');
+        if (raw) {
+          const d = JSON.parse(raw);
+          if (d.name !== undefined) officerName.value = d.name;
+          if (d.unit !== undefined) officerUnit.value = d.unit;
+          if (d.title !== undefined) dealTitle.value = d.title;
+          if (d.amount !== undefined) dealAmount.value = d.amount;
+          if (d.date !== undefined) dealDate.value = d.date;
+          if (d.campaign !== undefined) dealCampaign.value = d.campaign;
+          if (d.quarter !== undefined) dealQuarter.value = d.quarter;
+          if (d.panX !== undefined) avatarState.panX = d.panX;
+          if (d.panY !== undefined) avatarState.panY = d.panY;
+          if (d.scale !== undefined) {
+            avatarState.scale = d.scale;
+            avatarZoom.value = Math.round(d.scale * 100);
+            zoomVal.textContent = avatarZoom.value + '%';
+          }
+          if (d.rotation !== undefined) {
+            avatarState.rotation = d.rotation;
+            avatarRotate.value = d.rotation;
+            rotateVal.textContent = d.rotation + '°';
+          }
+          if (d.defaultIllu !== undefined) checkDefaultIllustration.checked = d.defaultIllu;
+          if (d.showLaurel !== undefined) toggleLaurel.checked = d.showLaurel;
+          if (d.showSparkles !== undefined) toggleSparkles.checked = d.showSparkles;
+          if (d.showLogos !== undefined) toggleBrandLogos.checked = d.showLogos;
+        }
+      } catch (e) {}
+    }
+
+    // Khởi động ứng dụng
+    restoreState();
+    document.fonts.ready.then(() => {
+      render();
+    });
+    window.addEventListener('resize', render);
+  </script>
+</body>
+</html>
