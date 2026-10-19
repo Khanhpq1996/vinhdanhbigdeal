@@ -1430,32 +1430,6 @@
       showToast('Đang tải ảnh Full HD 1920x1080 xuống máy!');
     });
 
-    btnCopyClipboard.addEventListener('click', async () => {
-      render();
-      try {
-        canvas.toBlob(async (blob) => {
-          if (!blob) {
-            showToast('Lỗi tạo file ảnh', true);
-            return;
-          }
-          try {
-            await navigator.clipboard.write([
-              new ClipboardItem({ 'image/png': blob })
-            ]);
-            showToast('Đã sao chép ảnh! Dán ngay vào Zalo, Teams hoặc Facebook (Ctrl+V)');
-          } catch (err) {
-            // Fallback mở tab mới
-            const imgData = canvas.toDataURL('image/png');
-            const win = window.open('');
-            win.document.write(`<img src="${imgData}" style="max-width:100%"/><p style="font-family:sans-serif;margin-top:8px">Nhấp chuột phải vào ảnh và chọn "Sao chép hình ảnh"</p>`);
-            showToast('Đã mở ảnh trong tab mới để copy!');
-          }
-        }, 'image/png');
-      } catch (err) {
-        showToast('Vui lòng sử dụng nút Tải ảnh HD', true);
-      }
-    });
-
     // ==========================================
     // LOCALSTORAGE PERSISTENCE
     // ==========================================
