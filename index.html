@@ -581,27 +581,6 @@
       });
     });
 
-    // Reset All Defaults
-    btnResetDefault.addEventListener('click', () => {
-      officerName.value = '...';
-      officerUnit.value = 'Phòng ...... - Chi nhánh BIDV .........';
-      dealTitle.value = 'Tiêu đề vinh danh ...';
-      dealAmount.value = '';
-      dealDate.value = 'Ngày ...';
-      dealCampaign.value = 'Chiến dịch ...';
-      dealQuarter.value = 'Quý ...';
-      checkDefaultIllustration.checked = true;
-      toggleLaurel.checked = true;
-      toggleSparkles.checked = true;
-      toggleBrandLogos.checked = true;
-      customBackgroundImg = null;
-      userAvatarImg = null;
-      resetAvatar();
-      persistState();
-      showToast('Đã phục hồi mẫu phôi mặc định ban đầu!');
-      render();
-    });
-
     // ==========================================
     // CÁC HÀM ĐỒ HỌA CANVAS CHÍNH XÁC NGUYÊN MẪU
     // ==========================================
