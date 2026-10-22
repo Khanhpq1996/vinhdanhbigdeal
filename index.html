@@ -6,7 +6,7 @@
   <title>Tạo Ảnh Vinh Danh BIG DEAL | BIC - BIDV</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Montserrat (tiêu đề/số tiền), Be Vietnam Pro (nội dung), Great Vibes / Playfair Display (Vinh danh) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Great+Vibes&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
@@ -62,22 +62,27 @@
     <div class="flex items-center gap-3">
       <div class="w-15 h-10 rounded-xl bg-gradient-to-br from-amber-300 via-amber-500 to-emerald-600 p-[2px] shadow-lg shadow-teal-950 flex items-center justify-center">
         <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center text-amber-300">
-          <img src="./lgB.png" alt="BIC Logo" class="w-full h-full rounded-[10px] object-contain"> 
+          <img src="./lgB.png" alt="BIC Logo" class="w-full h-full rounded-[10px] object-contain" onerror="this.style.display='none'">
         </div>
       </div>
       <div>
         <h1 class="text-sm sm:text-base font-extrabold tracking-tight text-white flex items-center gap-2">
           ỨNG DỤNG TẠO ẢNH VINH DANH QUA AI<span class="text-xs uppercase bg-amber-400 text-slate-950 font-black px-2 py-0.5 rounded shadow-sm">BIG DEAL</span>
         </h1>
-        <p class="text-[11px] text-teal-300/80 font-medium hidden sm:block">Nhóm Bancas BIDV</p>
+        <p class="text-[11px] text-teal-300/80 font-medium hidden sm:block">Nhóm Bancas BIC Bắc Trung Bộ</p>
       </div>
     </div>
 
     <!-- Quick Actions -->
     <div class="flex items-center gap-2 sm:gap-3">
+      <button id="btnOpenGalleryHeader" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-700/50 transition active:scale-95">
+        <i data-lucide="images" class="w-4 h-4"></i>
+        <span>Kho ảnh lưu trữ</span>
+      </button>
+
       <button id="btnDownloadHD" class="flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-xs font-bold bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-300 text-slate-950 transition shadow-lg shadow-amber-500/20 active:scale-95">
         <i data-lucide="download" class="w-4 h-4"></i>
-        <span>Tải ảnh Full HD (PNG)</span>
+        <span>Tải ảnh Vinh danh</span>
       </button>
     </div>
   </header>
@@ -107,29 +112,29 @@
       <!-- Tab 1: Nội dung -->
       <div id="tab-content" class="tab-content-pane p-4 sm:p-5 space-y-4">
         
-        <!-- Khối thông tin cán bộ -->
         <div class="bg-slate-800/50 rounded-xl p-4 border border-teal-900/40 space-y-3">
           <h2 class="text-xs font-bold text-amber-300 flex items-center gap-1.5 uppercase tracking-wider">
-            <i data-lucide="user" class="w-4 h-4 text-teal-400"></i> Thông tin Cán Bộ</h2>
+            <i data-lucide="user" class="w-4 h-4 text-teal-400"></i> Thông tin Cán Bộ
+          </h2>
           <div>
             <label class="block text-xs font-medium text-slate-300 mb-1">Họ và tên cán bộ <span class="text-amber-400">*</span></label>
             <input type="text" id="officerName" placeholder="Họ và tên cán bộ" class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-sm text-amber-300 font-bold tracking-wide focus:outline-none">
           </div>
           <div>
-            <label class="block text-xs font-medium text-slate-300 mb-1">Phòng ban & Chi nhánh BIDV <span class="text-amber-400">*</span></label>
-            <input type="text" id="officerUnit" value="Phòng ...... - Chi nhánh BIDV ........." placeholder="theo gợi ý" class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
-            <p class="text-[10px] text-slate-400 mt-1 italic">Gợi ý mẫu: "Phòng ...... - Chi nhánh BIDV ........."</p>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Phòng ban BIDV <span class="text-amber-400">*</span></label>
+            <input type="text" id="officerUnit" value="Phòng ...... " class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
+            <label class="block text-xs font-medium text-slate-300 mt-2 mb-1">Chi nhánh BIDV <span class="text-amber-400">*</span></label>
+            <input type="text" id="officerUnit2" value="Chi nhánh BIDV ........." class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
           </div>
         </div>
 
-        <!-- Khối thông tin Big Deal -->
         <div class="bg-slate-800/50 rounded-xl p-4 border border-teal-900/40 space-y-3.5">
           <h2 class="text-xs font-bold text-amber-300 flex items-center gap-1.5 uppercase tracking-wider">
             <i data-lucide="trending-up" class="w-4 h-4 text-amber-400"></i> Thông tin Món Phí Big Deal
           </h2>
           <div>
             <label class="block text-xs font-medium text-slate-300 mb-1">Tiêu đề vinh danh</label>
-            <input type="text" id="dealTitle" placeholder="Tiêu đề ..." class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
+            <input type="text" id="dealTitle" value="Cấp thành công món phí lớn BIC Bình An" class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
           </div>
 
           <div>
@@ -160,12 +165,12 @@
 
           <div>
             <label class="block text-xs font-medium text-slate-300 mb-1">Chiến dịch vinh danh</label>
-            <input type="text" id="dealCampaign" placeholder="Ví dụ: Chiến dịch Tốc lực bứt phá đỉnh cao" class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
+            <input type="text" id="dealCampaign" value="Chiến dịch ..." class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
           </div>
 
           <div>
             <label class="block text-xs font-medium text-slate-300 mb-1">Quý vinh danh</label>
-            <input type="text" id="dealQuarter" placeholder="Quý ..." class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
+            <input type="text" id="dealQuarter" value="Bảo hiểm BIC Quý ..." class="w-full bg-slate-900 border border-slate-700 focus:border-amber-400 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
           </div>
         </div>
 
@@ -177,18 +182,22 @@
           <h2 class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
             <i data-lucide="camera" class="w-4 h-4 text-teal-400"></i> Ảnh chân dung cán bộ
           </h2>
-          <button id="btnRemoveAvatar" class="text-xs text-rose-400 hover:underline">Gỡ ảnh</button>
+          <div class="flex items-center gap-3">
+            <button id="btnOpenGallerySidebar" class="text-xs text-teal-300 hover:text-amber-300 flex items-center gap-1">
+              <i data-lucide="folder-image" class="w-3.5 h-3.5"></i> Kho ảnh
+            </button>
+            <span class="text-slate-700">|</span>
+            <button id="btnRemoveAvatar" class="text-xs text-rose-400 hover:underline">Gỡ ảnh</button>
+          </div>
         </div>
 
-        <!-- Upload file ảnh -->
         <label class="flex flex-col items-center justify-center p-6 border-2 border-dashed border-teal-700/60 hover:border-amber-400 rounded-xl cursor-pointer bg-slate-800/40 hover:bg-slate-800/80 transition group text-center">
           <i data-lucide="upload-cloud" class="w-9 h-9 text-teal-400 group-hover:text-amber-400 transition mb-2"></i>
-          <span class="text-xs font-semibold text-slate-200">Tải ảnh chân dung của cán bộ lên</span>
-          <span class="text-[11px] text-slate-400 mt-1">Hỗ trợ JPG, PNG (tự động cắt bo tròn trong nguyệt quế)</span>
+          <span class="text-xs font-semibold text-slate-200">Tải ảnh chân dung mới lên</span>
+          <span class="text-[11px] text-slate-400 mt-1">Ảnh sẽ tự động được lưu vào Kho ảnh chân dung</span>
           <input type="file" id="avatarFileInput" accept="image/*" class="hidden">
         </label>
 
-        <!-- Tinh chỉnh Avatar -->
         <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 space-y-3.5 text-xs">
           <div class="flex items-center justify-between">
             <span class="font-semibold text-slate-200 flex items-center gap-1.5">
@@ -225,13 +234,12 @@
           </div>
 
           <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg text-[11px] text-amber-200 leading-relaxed">
-            <strong class="text-amber-300">Mẹo thao tác:</strong> Bạn có thể dùng chuột hoặc chạm ngón tay kéo trực tiếp vào vòng tròn trên ảnh để căn chỉnh góc mặt một cách tự nhiên nhất!
+            <strong class="text-amber-300">Mẹo thao tác:</strong> Kéo trực tiếp vào vòng tròn trên ảnh để căn chỉnh góc mặt nhanh nhất!
           </div>
         </div>
 
-        <!-- Chế độ hiển thị phôi ảnh mặc định -->
         <div class="bg-slate-800/40 p-3 rounded-xl border border-slate-800 flex items-center justify-between text-xs">
-          <span>Sử dụng hình vẽ phôi mặc định (Đồi mây) khi chưa có ảnh:</span>
+          <span>Sử dụng hình vẽ phôi mặc định khi chưa có ảnh:</span>
           <input type="checkbox" id="checkDefaultIllustration" checked class="rounded border-slate-700 text-amber-400 focus:ring-0">
         </div>
       </div>
@@ -242,17 +250,24 @@
           <h2 class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
             <i data-lucide="layers" class="w-4 h-4 text-teal-400"></i> Phôi nền (Background Template)
           </h2>
-          <button id="btnRestoreVectorBg" class="text-xs text-teal-400 hover:underline">Dùng phôi AI</button>
+          <div class="flex items-center gap-2">
+            <!-- Nút mở nhanh kho phôi nền -->
+            <button id="btnOpenBgGallerySidebar" class="text-xs text-amber-300 hover:underline flex items-center gap-1 font-semibold">
+              <i data-lucide="folder-heart" class="w-3.5 h-3.5"></i> Kho phôi nền
+            </button>
+            <span class="text-slate-700">|</span>
+            <button id="btnRestoreVectorBg" class="text-xs text-teal-400 hover:underline">Dùng phôi AI</button>
+          </div>
         </div>
 
         <div>
-          <label class="block text-xs font-medium text-slate-300 mb-1">Nạp file ảnh phôi riêng</label>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Nạp file ảnh phôi riêng (sẽ tự lưu vào kho)</label>
           <label class="flex items-center justify-center p-3.5 border-2 border-dashed border-slate-700 hover:border-amber-400 rounded-xl cursor-pointer bg-slate-800/40 hover:bg-slate-800/80 transition text-center group">
             <i data-lucide="upload" class="w-4 h-4 text-teal-400 group-hover:text-amber-400 mr-2"></i>
-            <span class="text-xs text-slate-200">Chọn file ảnh phôi (JPG, PNG tỉ lệ 16:9)</span>
+            <span class="text-xs text-slate-200">Chọn file ảnh phôi mới (JPG, PNG 16:9)</span>
             <input type="file" id="customBgInput" accept="image/*" class="hidden">
           </label>
-          <p class="text-[11px] text-slate-400 mt-1 italic">* Ứng dụng đã tích hợp sẵn phôi AI, bạn có thể nạp phôi ảnh riêng nếu không ưng ý.</p>
+          <p class="text-[11px] text-slate-400 mt-1 italic">Bạn có thể lưu trữ nhiều phôi nền khác nhau trong Kho phôi để đổi qua lại bất kỳ lúc nào.</p>
         </div>
 
         <div class="space-y-3 pt-2">
@@ -273,6 +288,7 @@
             <span>Hiển thị logo BIC & BIDV trên góc banner (AI thiết kế)</span>
           </label>
         </div>
+        <p class="text-[11px] text-slate-400 mt-1 italic"><strong>Lưu ý:</strong> Không dùng phôi AI thì nhớ bỏ tích đi nhé!</p>
       </div>
 
       <!-- Footer Info inside sidebar -->
@@ -285,7 +301,6 @@
     <!-- Canvas Preview Panel (Right Side) -->
     <section class="flex-1 bg-slate-950 flex flex-col items-center justify-center p-3 sm:p-5 lg:p-6 overflow-hidden relative min-h-[460px]">
       
-      <!-- Canvas Control Bar -->
       <div class="w-full max-w-5xl flex items-center justify-between pb-3 text-xs text-slate-400">
         <div class="flex items-center gap-2">
           <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -307,18 +322,15 @@
         </div>
       </div>
 
-      <!-- Canvas Frame Container -->
       <div id="canvasWrapper" class="relative max-w-full max-h-[82vh] flex items-center justify-center rounded-2xl p-2 bg-gradient-to-b from-teal-900/20 via-slate-900/40 to-slate-950 border border-teal-500/20 shadow-2xl overflow-hidden">
         <canvas id="dealCanvas" width="1920" height="1080" class="max-w-full h-auto cursor-grab active:cursor-grabbing rounded-xl shadow-2xl bg-teal-950 transition-transform duration-75"></canvas>
       </div>
 
-      <!-- Quick note -->
       <p class="mt-3 text-[11px] text-slate-400 flex items-center gap-1.5 text-center">
         <i data-lucide="mouse-pointer" class="w-3.5 h-3.5 text-amber-400 flex-shrink-0"></i>
         <span>Nhấp giữ và kéo chuột trong vòng tròn để căn chỉnh vị trí khuôn mặt cán bộ.</span>
       </p>
 
-      <!-- Toast Feedback Message -->
       <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-3 bg-slate-900 text-white px-4 py-3 rounded-xl border border-teal-500 shadow-2xl">
         <div id="toastIcon" class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-xs">✓</div>
         <div id="toastText" class="text-xs font-semibold">Đã cập nhật thành công!</div>
@@ -328,17 +340,200 @@
 
   </main>
 
+  <!-- MODAL: KHO ẢNH LƯU TRỮ (HỖ TRỢ 2 TAB: ẢNH CHÂN DUNG & PHÔI NỀN) -->
+  <div id="galleryModal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 hidden">
+    <div class="bg-slate-900 border border-teal-800/60 rounded-2xl w-full max-w-3xl max-h-[88vh] flex flex-col shadow-2xl overflow-hidden">
+      
+      <!-- Modal Header -->
+      <div class="p-4 sm:p-5 border-b border-teal-900/40 flex items-center justify-between bg-slate-950/60">
+        <div class="flex items-center gap-2.5">
+          <div class="p-2 bg-teal-500/20 text-teal-300 rounded-lg">
+            <i data-lucide="images" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white uppercase tracking-wide">Kho Lưu Trữ Hình Ảnh</h3>
+            <p class="text-[11px] text-slate-400">Chọn nhanh ảnh chân dung hoặc phôi nền banner đã lưu</p>
+          </div>
+        </div>
+        <button id="btnCloseGallery" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Gallery Mode Switcher (Avatar vs Background) -->
+      <div class="flex border-b border-slate-800 bg-slate-950/40 px-4 pt-2 gap-2">
+        <button id="tabGalleryAvatar" class="px-4 py-2 text-xs font-bold rounded-t-lg transition border-b-2 border-amber-400 text-amber-300 bg-slate-800/60 flex items-center gap-2">
+          <i data-lucide="user" class="w-4 h-4"></i>
+          <span>Kho ảnh chân dung</span>
+        </button>
+        <button id="tabGalleryBg" class="px-4 py-2 text-xs font-bold rounded-t-lg transition border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2">
+          <i data-lucide="layout-template" class="w-4 h-4"></i>
+          <span>Kho phôi nền Banner</span>
+        </button>
+      </div>
+
+      <!-- Modal Toolbar -->
+      <div class="px-5 py-3 bg-slate-950/30 border-b border-slate-800 flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2">
+          <label class="cursor-pointer px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-medium flex items-center gap-1.5 shadow transition">
+            <i data-lucide="plus" class="w-4 h-4"></i>
+            <span id="galleryUploadBtnText">Thêm ảnh vào kho</span>
+            <input type="file" id="galleryUploadInput" accept="image/*" class="hidden" multiple>
+          </label>
+          <button id="btnUseAiBgQuick" class="hidden px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-teal-300 font-medium items-center gap-1.5 border border-teal-700/50 transition">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Dùng phôi AI chuẩn</span>
+          </button>
+        </div>
+
+        <button id="btnClearAllGallery" class="text-rose-400 hover:text-rose-300 text-xs font-medium flex items-center gap-1">
+          <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> Dọn sạch kho này
+        </button>
+      </div>
+
+      <!-- Modal Body (Image Grid) -->
+      <div class="flex-1 p-5 overflow-y-auto">
+        <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <div id="galleryEmptyState" class="hidden flex-col items-center justify-center py-12 text-slate-500">
+          <i data-lucide="image-off" class="w-12 h-12 mb-3 text-slate-600"></i>
+          <p class="text-xs" id="galleryEmptyStateText">Kho ảnh hiện đang trống</p>
+          <span class="text-[11px] text-slate-600 mt-1">Hãy bấm "Thêm ảnh vào kho" để lưu trữ các tệp ảnh</span>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-3 border-t border-slate-800 bg-slate-950/60 text-right">
+        <button id="btnCloseGalleryFooter" class="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs rounded-lg font-semibold text-slate-300">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Khởi tạo icons Lucide
+    // ==========================================
+    // MODULE LƯU TRỮ HÌNH ẢNH QUA INDEXEDDB
+    // ==========================================
+    const ImageStorage = {
+      dbName: 'BigDealImageDB_v3',
+      storeSettings: 'settings',
+      storeAvatarGallery: 'gallery_avatar',
+      storeBgGallery: 'gallery_bg',
+      db: null,
+
+      init() {
+        return new Promise((resolve, reject) => {
+          const req = indexedDB.open(this.dbName, 1);
+          req.onupgradeneeded = (e) => {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains(this.storeSettings)) {
+              db.createObjectStore(this.storeSettings);
+            }
+            if (!db.objectStoreNames.contains(this.storeAvatarGallery)) {
+              db.createObjectStore(this.storeAvatarGallery, { keyPath: 'id', autoIncrement: true });
+            }
+            if (!db.objectStoreNames.contains(this.storeBgGallery)) {
+              db.createObjectStore(this.storeBgGallery, { keyPath: 'id', autoIncrement: true });
+            }
+          };
+          req.onsuccess = (e) => {
+            this.db = e.target.result;
+            resolve();
+          };
+          req.onerror = (e) => reject(e);
+        });
+      },
+
+      saveSetting(key, val) {
+        return new Promise((resolve, reject) => {
+          if (!this.db) return resolve();
+          const tx = this.db.transaction(this.storeSettings, 'readwrite');
+          tx.objectStore(this.storeSettings).put(val, key);
+          tx.oncomplete = () => resolve();
+          tx.onerror = (e) => reject(e);
+        });
+      },
+
+      getSetting(key) {
+        return new Promise((resolve) => {
+          if (!this.db) return resolve(null);
+          const tx = this.db.transaction(this.storeSettings, 'readonly');
+          const req = tx.objectStore(this.storeSettings).get(key);
+          req.onsuccess = () => resolve(req.result || null);
+          req.onerror = () => resolve(null);
+        });
+      },
+
+      removeSetting(key) {
+        return new Promise((resolve) => {
+          if (!this.db) return resolve();
+          const tx = this.db.transaction(this.storeSettings, 'readwrite');
+          tx.objectStore(this.storeSettings).delete(key);
+          tx.oncomplete = () => resolve();
+          tx.onerror = () => resolve();
+        });
+      },
+
+      // Quản lý Gallery chung theo storeName
+      addItem(storeName, dataUrl, name = 'Ảnh') {
+        return new Promise((resolve, reject) => {
+          if (!this.db) return resolve(null);
+          const tx = this.db.transaction(storeName, 'readwrite');
+          const store = tx.objectStore(storeName);
+          const item = {
+            dataUrl,
+            name,
+            createdAt: new Date().toISOString()
+          };
+          const req = store.add(item);
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = (e) => reject(e);
+        });
+      },
+
+      getAllItems(storeName) {
+        return new Promise((resolve) => {
+          if (!this.db) return resolve([]);
+          const tx = this.db.transaction(storeName, 'readonly');
+          const req = tx.objectStore(storeName).getAll();
+          req.onsuccess = () => resolve(req.result || []);
+          req.onerror = () => resolve([]);
+        });
+      },
+
+      deleteItem(storeName, id) {
+        return new Promise((resolve) => {
+          if (!this.db) return resolve();
+          const tx = this.db.transaction(storeName, 'readwrite');
+          tx.objectStore(storeName).delete(id);
+          tx.oncomplete = () => resolve();
+          tx.onerror = () => resolve();
+        });
+      },
+
+      clearStore(storeName) {
+        return new Promise((resolve) => {
+          if (!this.db) return resolve();
+          const tx = this.db.transaction(storeName, 'readwrite');
+          tx.objectStore(storeName).clear();
+          tx.oncomplete = () => resolve();
+          tx.onerror = () => resolve();
+        });
+      }
+    };
+
     lucide.createIcons();
 
-    // Lấy Canvas & Context
     const canvas = document.getElementById('dealCanvas');
     const ctx = canvas.getContext('2d');
 
-    // DOM Inputs & Controls
+    // DOM Controls
     const officerName = document.getElementById('officerName');
     const officerUnit = document.getElementById('officerUnit');
+    const officerUnit2 = document.getElementById('officerUnit2');
     const dealTitle = document.getElementById('dealTitle');
     const dealAmount = document.getElementById('dealAmount');
     const dealDate = document.getElementById('dealDate');
@@ -363,14 +558,29 @@
     // Template Controls
     const customBgInput = document.getElementById('customBgInput');
     const btnRestoreVectorBg = document.getElementById('btnRestoreVectorBg');
+    const btnOpenBgGallerySidebar = document.getElementById('btnOpenBgGallerySidebar');
     const toggleLaurel = document.getElementById('toggleLaurel');
     const toggleSparkles = document.getElementById('toggleSparkles');
     const toggleBrandLogos = document.getElementById('toggleBrandLogos');
 
+    // Modal DOM
+    const galleryModal = document.getElementById('galleryModal');
+    const galleryGrid = document.getElementById('galleryGrid');
+    const galleryEmptyState = document.getElementById('galleryEmptyState');
+    const galleryEmptyStateText = document.getElementById('galleryEmptyStateText');
+    const galleryUploadBtnText = document.getElementById('galleryUploadBtnText');
+    const btnOpenGalleryHeader = document.getElementById('btnOpenGalleryHeader');
+    const btnOpenGallerySidebar = document.getElementById('btnOpenGallerySidebar');
+    const btnCloseGallery = document.getElementById('btnCloseGallery');
+    const btnCloseGalleryFooter = document.getElementById('btnCloseGalleryFooter');
+    const galleryUploadInput = document.getElementById('galleryUploadInput');
+    const btnClearAllGallery = document.getElementById('btnClearAllGallery');
+    const tabGalleryAvatar = document.getElementById('tabGalleryAvatar');
+    const tabGalleryBg = document.getElementById('tabGalleryBg');
+    const btnUseAiBgQuick = document.getElementById('btnUseAiBgQuick');
+
     // Actions & Zoom
-    const btnResetDefault = document.getElementById('btnResetDefault');
     const btnDownloadHD = document.getElementById('btnDownloadHD');
-    const btnCopyClipboard = document.getElementById('btnCopyClipboard');
     const zoomCanvasIn = document.getElementById('zoomCanvasIn');
     const zoomCanvasOut = document.getElementById('zoomCanvasOut');
     const zoomCanvasFit = document.getElementById('zoomCanvasFit');
@@ -378,29 +588,19 @@
     const toast = document.getElementById('toast');
     const toastText = document.getElementById('toastText');
 
-    // Tọa độ chuẩn hóa theo tỷ lệ mẫu (1920x1080)
+    // Toạ độ
     const POS = {
-      avatar: {
-        x: 520,
-        y: 535,
-        radius: 206
-      },
-      card: {
-        x: 930,
-        y: 370,
-        width: 820,
-        height: 395,
-        radius: 26
-      },
-      officerText: {
-        x: 160,
-        y: 890
-      }
+      avatar: { x: 520, y: 535, radius: 206 },
+      card: { x: 930, y: 370, width: 820, height: 395, radius: 26 },
+      officerText: { x: 160, y: 890 }
     };
 
-    // State ứng dụng
+    // State
     let userAvatarImg = null;
+    let currentAvatarDataUrl = null;
     let customBackgroundImg = null;
+    let currentCustomBgDataUrl = null;
+    let activeGalleryTab = 'avatar'; // 'avatar' | 'bg'
     let viewZoom = 1.0;
 
     let avatarState = {
@@ -414,7 +614,7 @@
     let dragStart = { x: 0, y: 0 };
     let panStart = { x: 0, y: 0 };
 
-    // Tabs switching
+    // Tabs switching trong Sidebar
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.tab-btn').forEach(b => {
@@ -430,7 +630,6 @@
       });
     });
 
-    // Định dạng tiền tệ tự động
     function formatThousands(val) {
       const clean = val.replace(/\D/g, '');
       if (!clean) return '';
@@ -446,7 +645,6 @@
       render();
     });
 
-    // Date picker sync
     datePicker.addEventListener('change', (e) => {
       if (e.target.value) {
         const [y, m, d] = e.target.value.split('-');
@@ -473,33 +671,242 @@
       render();
     });
 
-    // Upload Avatar
+    // ==========================================
+    // LOGIC KHO ẢNH (MODAL 2 TAB: AVATAR & BACKGROUND)
+    // ==========================================
+    function setGalleryTab(tab) {
+      activeGalleryTab = tab;
+      if (tab === 'avatar') {
+        tabGalleryAvatar.className = 'px-4 py-2 text-xs font-bold rounded-t-lg transition border-b-2 border-amber-400 text-amber-300 bg-slate-800/60 flex items-center gap-2';
+        tabGalleryBg.className = 'px-4 py-2 text-xs font-bold rounded-t-lg transition border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2';
+        galleryUploadBtnText.textContent = 'Thêm ảnh chân dung vào kho';
+        btnUseAiBgQuick.classList.add('hidden');
+        btnUseAiBgQuick.classList.remove('flex');
+      } else {
+        tabGalleryBg.className = 'px-4 py-2 text-xs font-bold rounded-t-lg transition border-b-2 border-amber-400 text-amber-300 bg-slate-800/60 flex items-center gap-2';
+        tabGalleryAvatar.className = 'px-4 py-2 text-xs font-bold rounded-t-lg transition border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2';
+        galleryUploadBtnText.textContent = 'Thêm phôi nền vào kho';
+        btnUseAiBgQuick.classList.remove('hidden');
+        btnUseAiBgQuick.classList.add('flex');
+      }
+      refreshGalleryUI();
+    }
+
+    tabGalleryAvatar.addEventListener('click', () => setGalleryTab('avatar'));
+    tabGalleryBg.addEventListener('click', () => setGalleryTab('bg'));
+
+    async function openGalleryModal(preferredTab = 'avatar') {
+      galleryModal.classList.remove('hidden');
+      setGalleryTab(preferredTab);
+    }
+
+    function closeGalleryModal() {
+      galleryModal.classList.add('hidden');
+    }
+
+    btnOpenGalleryHeader.addEventListener('click', () => openGalleryModal('avatar'));
+    btnOpenGallerySidebar.addEventListener('click', () => openGalleryModal('avatar'));
+    btnOpenBgGallerySidebar.addEventListener('click', () => openGalleryModal('bg'));
+
+    [btnCloseGallery, btnCloseGalleryFooter].forEach(btn => {
+      if (btn) btn.addEventListener('click', closeGalleryModal);
+    });
+
+    galleryModal.addEventListener('click', (e) => {
+      if (e.target === galleryModal) closeGalleryModal();
+    });
+
+    // Vẽ danh sách ảnh
+    async function refreshGalleryUI() {
+      const storeName = activeGalleryTab === 'avatar' ? ImageStorage.storeAvatarGallery : ImageStorage.storeBgGallery;
+      const items = await ImageStorage.getAllItems(storeName);
+      galleryGrid.innerHTML = '';
+
+      if (items.length === 0) {
+        galleryEmptyState.classList.remove('hidden');
+        galleryEmptyState.classList.add('flex');
+        galleryEmptyStateText.textContent = activeGalleryTab === 'avatar' ? 'Kho ảnh chân dung đang trống' : 'Kho phôi nền đang trống';
+        return;
+      }
+
+      galleryEmptyState.classList.add('hidden');
+      galleryEmptyState.classList.remove('flex');
+
+      items.forEach(item => {
+        const isCurrent = activeGalleryTab === 'avatar'
+          ? (currentAvatarDataUrl && currentAvatarDataUrl === item.dataUrl)
+          : (currentCustomBgDataUrl && currentCustomBgDataUrl === item.dataUrl);
+
+        const card = document.createElement('div');
+        const aspectClass = activeGalleryTab === 'avatar' ? 'aspect-square' : 'aspect-video';
+        card.className = `group relative ${aspectClass} rounded-xl overflow-hidden border-2 cursor-pointer transition ${
+          isCurrent ? 'border-amber-400 ring-2 ring-amber-400/30' : 'border-slate-800 hover:border-teal-400'
+        } bg-slate-950`;
+
+        card.innerHTML = `
+          <img src="${item.dataUrl}" alt="${item.name}" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-between p-2">
+            <div class="flex justify-end">
+              <button data-delete-id="${item.id}" title="Xóa ảnh" class="p-1 rounded bg-rose-500/80 hover:bg-rose-600 text-white transition">
+                <i data-lucide="trash" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <span class="text-[10px] text-center bg-amber-400 text-slate-950 font-bold py-1 px-1.5 rounded truncate">
+              Chọn sử dụng
+            </span>
+          </div>
+          ${isCurrent ? '<span class="absolute top-1.5 left-1.5 bg-amber-400 text-slate-950 text-[9px] font-extrabold px-1.5 py-0.5 rounded shadow">Đang chọn</span>' : ''}
+        `;
+
+        card.addEventListener('click', async (e) => {
+          if (e.target.closest('button[data-delete-id]')) return;
+          if (activeGalleryTab === 'avatar') {
+            await selectAvatarFromDataUrl(item.dataUrl);
+          } else {
+            await selectBgFromDataUrl(item.dataUrl);
+          }
+          closeGalleryModal();
+        });
+
+        const delBtn = card.querySelector('[data-delete-id]');
+        delBtn.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          if (confirm('Bạn có chắc chắn muốn xóa ảnh này khỏi kho?')) {
+            await ImageStorage.deleteItem(storeName, item.id);
+            if (activeGalleryTab === 'avatar' && currentAvatarDataUrl === item.dataUrl) {
+              await removeActiveAvatar();
+            } else if (activeGalleryTab === 'bg' && currentCustomBgDataUrl === item.dataUrl) {
+              await restoreDefaultVectorBg();
+            }
+            await refreshGalleryUI();
+            showToast('Đã xóa ảnh thành công!');
+          }
+        });
+
+        galleryGrid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    // Nạp ảnh vào kho từ modal
+    galleryUploadInput.addEventListener('change', async (e) => {
+      const files = Array.from(e.target.files);
+      if (!files.length) return;
+
+      const storeName = activeGalleryTab === 'avatar' ? ImageStorage.storeAvatarGallery : ImageStorage.storeBgGallery;
+
+      for (const file of files) {
+        await new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onload = async (ev) => {
+            const dataUrl = ev.target.result;
+            await ImageStorage.addItem(storeName, dataUrl, file.name);
+            resolve();
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      galleryUploadInput.value = '';
+      showToast(`Đã thêm ${files.length} ảnh vào kho!`);
+      await refreshGalleryUI();
+    });
+
+    // Dọn sạch kho hiện tại
+    btnClearAllGallery.addEventListener('click', async () => {
+      const isAvatar = activeGalleryTab === 'avatar';
+      const label = isAvatar ? 'kho ảnh chân dung' : 'kho phôi nền';
+      if (confirm(`Bạn có chắc chắn muốn xóa toàn bộ ảnh trong ${label} không?`)) {
+        const storeName = isAvatar ? ImageStorage.storeAvatarGallery : ImageStorage.storeBgGallery;
+        await ImageStorage.clearStore(storeName);
+        if (isAvatar) {
+          await removeActiveAvatar();
+        } else {
+          await restoreDefaultVectorBg();
+        }
+        await refreshGalleryUI();
+        showToast(`Đã dọn sạch ${label}.`);
+      }
+    });
+
+    // Dùng phôi AI nhanh từ modal
+    btnUseAiBgQuick.addEventListener('click', async () => {
+      await restoreDefaultVectorBg();
+      closeGalleryModal();
+    });
+
+    // ==========================================
+    // ÁP DỤNG HÌNH ẢNH (AVATAR & BACKGROUND)
+    // ==========================================
+    async function selectAvatarFromDataUrl(dataUrl) {
+      currentAvatarDataUrl = dataUrl;
+      userAvatarImg = await loadImageFromDataUrl(dataUrl);
+      resetAvatar();
+      await ImageStorage.saveSetting('active_avatar', dataUrl);
+      showToast('Đã áp dụng ảnh chân dung!');
+      persistState();
+      render();
+    }
+
+    async function removeActiveAvatar() {
+      userAvatarImg = null;
+      currentAvatarDataUrl = null;
+      avatarFileInput.value = '';
+      await ImageStorage.removeSetting('active_avatar');
+      showToast('Đã gỡ ảnh chân dung.');
+      persistState();
+      render();
+    }
+
+    async function selectBgFromDataUrl(dataUrl) {
+      currentCustomBgDataUrl = dataUrl;
+      customBackgroundImg = await loadImageFromDataUrl(dataUrl);
+      await ImageStorage.saveSetting('active_bg', dataUrl);
+      showToast('Đã áp dụng phôi nền từ kho!');
+      render();
+    }
+
+    async function restoreDefaultVectorBg() {
+      customBackgroundImg = null;
+      currentCustomBgDataUrl = null;
+      customBgInput.value = '';
+      await ImageStorage.removeSetting('active_bg');
+      showToast('Đã phục hồi phôi AI mặc định!');
+      render();
+    }
+
+    // Tải ảnh chân dung từ sidebar -> tự lưu vào kho
     avatarFileInput.addEventListener('change', (e) => {
       const file = e.target.files[0];
       if (file) {
         const reader = new FileReader();
-        reader.onload = (event) => {
-          const img = new Image();
-          img.onload = () => {
-            userAvatarImg = img;
-            resetAvatar();
-            showToast('Đã tải ảnh chân dung thành công!');
-            persistState();
-            render();
-          };
-          img.src = event.target.result;
+        reader.onload = async (event) => {
+          const dataUrl = event.target.result;
+          await ImageStorage.addItem(ImageStorage.storeAvatarGallery, dataUrl, file.name);
+          await selectAvatarFromDataUrl(dataUrl);
         };
         reader.readAsDataURL(file);
       }
     });
 
-    btnRemoveAvatar.addEventListener('click', () => {
-      userAvatarImg = null;
-      avatarFileInput.value = '';
-      showToast('Đã gỡ ảnh chân dung.');
-      persistState();
-      render();
+    btnRemoveAvatar.addEventListener('click', removeActiveAvatar);
+
+    // Nạp phôi riêng từ sidebar -> tự lưu vào kho
+    customBgInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = async (event) => {
+          const dataUrl = event.target.result;
+          await ImageStorage.addItem(ImageStorage.storeBgGallery, dataUrl, file.name);
+          await selectBgFromDataUrl(dataUrl);
+        };
+        reader.readAsDataURL(file);
+      }
     });
+
+    btnRestoreVectorBg.addEventListener('click', restoreDefaultVectorBg);
 
     function resetAvatar() {
       avatarState.panX = 0;
@@ -516,6 +923,7 @@
 
     btnResetAvatarPos.addEventListener('click', () => {
       resetAvatar();
+      persistState();
       render();
     });
 
@@ -524,50 +932,28 @@
       zoomVal.textContent = e.target.value + '%';
       render();
     });
+    avatarZoom.addEventListener('change', persistState);
 
     avatarRotate.addEventListener('input', (e) => {
       avatarState.rotation = parseInt(e.target.value);
       rotateVal.textContent = e.target.value + '°';
       render();
     });
+    avatarRotate.addEventListener('change', persistState);
 
     avatarPanX.addEventListener('input', (e) => {
       avatarState.panX = parseInt(e.target.value);
       render();
     });
+    avatarPanX.addEventListener('change', persistState);
 
     avatarPanY.addEventListener('input', (e) => {
       avatarState.panY = parseInt(e.target.value);
       render();
     });
+    avatarPanY.addEventListener('change', persistState);
 
-    // Custom Background Upload
-    customBgInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          const img = new Image();
-          img.onload = () => {
-            customBackgroundImg = img;
-            showToast('Đã áp dụng phôi nền riêng của bạn!');
-            render();
-          };
-          img.src = event.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-
-    btnRestoreVectorBg.addEventListener('click', () => {
-      customBackgroundImg = null;
-      customBgInput.value = '';
-      showToast('Đã phục hồi phôi AI!');
-      render();
-    });
-
-    // Auto update on all text inputs
-    [officerName, officerUnit, dealTitle, dealDate, dealCampaign, dealQuarter].forEach(input => {
+    [officerName, officerUnit, officerUnit2, dealTitle, dealDate, dealCampaign, dealQuarter].forEach(input => {
       input.addEventListener('input', () => {
         persistState();
         render();
@@ -582,15 +968,12 @@
     });
 
     // ==========================================
-    // CÁC HÀM ĐỒ HỌA CANVAS CHÍNH XÁC NGUYÊN MẪU
+    // CÁC HÀM ĐỒ HỌA CANVAS
     // ==========================================
-
-    // Vẽ phôi nền Vector chất lượng cao
     function drawVectorBackground() {
       const W = canvas.width;
       const H = canvas.height;
 
-      // 1. Nền chuyển sắc Deep Emerald & Teal đặc trưng của BIDV & BIC
       const bgGrad = ctx.createRadialGradient(W * 0.38, H * 0.35, 80, W * 0.5, H * 0.5, 1250);
       bgGrad.addColorStop(0, '#0c6f66');
       bgGrad.addColorStop(0.35, '#04554d');
@@ -599,7 +982,6 @@
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, W, H);
 
-      // Luồng sáng rạng đông chiếu từ góc trên bên trái
       const sunBeam = ctx.createRadialGradient(0, 0, 0, 0, 0, 950);
       sunBeam.addColorStop(0, 'rgba(255, 255, 235, 0.45)');
       sunBeam.addColorStop(0.3, 'rgba(45, 212, 191, 0.22)');
@@ -608,7 +990,6 @@
       ctx.fillStyle = sunBeam;
       ctx.fillRect(0, 0, W, H);
 
-      // 2. Các đường lượn sóng năng lượng ánh sáng ở góc dưới
       ctx.save();
       for (let i = 0; i < 4; i++) {
         ctx.beginPath();
@@ -620,7 +1001,6 @@
       }
       ctx.restore();
 
-      // 3. Đồ thị cột kinh doanh tăng trưởng ở góc phải trên
       ctx.save();
       const chartX = W * 0.69;
       const chartY = H * 0.37;
@@ -637,12 +1017,10 @@
         ctx.fillStyle = colGrad;
         ctx.fillRect(x, y, colWidth, h);
 
-        // Vệt vàng trên đỉnh cột
         ctx.fillStyle = 'rgba(253, 224, 71, 0.6)';
         ctx.fillRect(x, y - 2, colWidth, 2.5);
       });
 
-      // Đường sóng line chart mỏng phía sau
       ctx.beginPath();
       ctx.strokeStyle = 'rgba(250, 204, 21, 0.45)';
       ctx.lineWidth = 2.5;
@@ -655,7 +1033,6 @@
       ctx.stroke();
       ctx.restore();
 
-      // 4. Mũi tên tăng trưởng vàng kim 3D (Golden Growth Arrow)
       ctx.save();
       ctx.shadowColor = 'rgba(234, 179, 8, 0.65)';
       ctx.shadowBlur = 35;
@@ -670,7 +1047,6 @@
       ctx.beginPath();
       ctx.moveTo(W * 0.78, H * 0.37);
       ctx.quadraticCurveTo(W * 0.85, H * 0.29, W * 0.93, H * 0.16);
-      // Đầu mũi tên nhọn
       ctx.lineTo(W * 0.90, H * 0.185);
       ctx.lineTo(W * 0.965, H * 0.115);
       ctx.lineTo(W * 0.94, H * 0.245);
@@ -681,10 +1057,8 @@
       ctx.fill();
       ctx.restore();
 
-      // Sao sáng rực tại mũi tên
       drawSparkle(W * 0.958, H * 0.125, 26, 4);
 
-      // 5. Ngọn núi thành công & 3 chiến binh nâng cờ (Silhouette)
       ctx.save();
       const mountainGrad = ctx.createLinearGradient(W * 0.65, H, W * 0.86, H * 0.85);
       mountainGrad.addColorStop(0, '#01201b');
@@ -699,7 +1073,6 @@
       ctx.closePath();
       ctx.fill();
 
-      // Hào quang vàng phía sau 3 chiến binh
       const heroGlow = ctx.createRadialGradient(W * 0.83, H * 0.88, 10, W * 0.83, H * 0.88, 200);
       heroGlow.addColorStop(0, 'rgba(254, 240, 138, 0.45)');
       heroGlow.addColorStop(0.4, 'rgba(45, 212, 191, 0.2)');
@@ -709,23 +1082,18 @@
       ctx.arc(W * 0.83, H * 0.88, 200, 0, Math.PI * 2);
       ctx.fill();
 
-      // 3 người chiến binh vinh quang
-      drawMiniWarrior(W * 0.795, H * 0.885, 0.86, false); // người trái
-      drawMiniWarrior(W * 0.835, H * 0.865, 1.05, true);  // người giữa giương cờ
-      drawMiniWarrior(W * 0.875, H * 0.89, 0.9, false);   // người phải ăn mừng
-
+      drawMiniWarrior(W * 0.795, H * 0.885, 0.86, false);
+      drawMiniWarrior(W * 0.835, H * 0.865, 1.05, true);
+      drawMiniWarrior(W * 0.875, H * 0.89, 0.9, false);
       ctx.restore();
 
-      // 6. Chữ tiêu đề trên phôi: "Vinh danh BIG DEAL"
       ctx.save();
-      // Chữ "Vinh danh" thư pháp mềm mại
       ctx.font = 'italic 700 52px "Playfair Display", serif';
       ctx.fillStyle = '#fef08a';
       ctx.shadowColor = 'rgba(0,0,0,0.6)';
       ctx.shadowBlur = 10;
       ctx.fillText('Vinh danh', 210, 175);
 
-      // Chữ "BIG DEAL" in hoa vàng kim nổi khối 3D
       ctx.font = '900 80px "Montserrat", sans-serif';
       const bigDealGrad = ctx.createLinearGradient(210, 200, 210, 275);
       bigDealGrad.addColorStop(0, '#FFFFFF');
@@ -740,14 +1108,12 @@
       ctx.shadowBlur = 16;
       ctx.fillText('BIG DEAL', 210, 265);
 
-      // Viền nét mảnh vàng rực
       ctx.strokeStyle = '#FEF08A';
       ctx.lineWidth = 1.5;
       ctx.strokeText('BIG DEAL', 210, 265);
       ctx.restore();
     }
 
-    // Vẽ bóng chiến binh
     function drawMiniWarrior(x, y, scale = 1, hasFlag = false) {
       ctx.save();
       ctx.translate(x, y);
@@ -796,19 +1162,16 @@
       ctx.restore();
     }
 
-    // Vẽ Logo BIC & BIDV
     function drawLogos() {
       if (!toggleBrandLogos.checked) return;
 
       ctx.save();
-      // Logo BIC ở góc trái
       ctx.font = '900 48px "Montserrat", sans-serif';
       ctx.fillStyle = '#ffffff';
       ctx.shadowColor = 'rgba(0,0,0,0.5)';
       ctx.shadowBlur = 8;
       ctx.fillText('BIC', 140, 95);
 
-      // Icon BIC cánh hoa
       ctx.save();
       ctx.translate(242, 80);
       ctx.fillStyle = '#f97316';
@@ -821,12 +1184,10 @@
       ctx.fill();
       ctx.restore();
 
-      // Logo BIDV ở góc phải
       ctx.font = '900 48px "Montserrat", sans-serif';
       ctx.fillStyle = '#ffffff';
       ctx.fillText('BIDV', 1605, 95);
 
-      // Bông mai vàng BIDV 5 cánh
       ctx.save();
       ctx.translate(1738, 80);
       ctx.fillStyle = '#eab308';
@@ -845,7 +1206,6 @@
       ctx.restore();
     }
 
-    // Vẽ tia sáng lấp lánh (Sparkle)
     function drawSparkle(x, y, size, spikes = 4) {
       ctx.save();
       ctx.translate(x, y);
@@ -872,10 +1232,8 @@
       ctx.restore();
     }
 
-    // Vẽ hình minh họa đồi mây mặc định của phôi ảnh gốc
     function drawDefaultIllustration(x, y, radius) {
       ctx.save();
-      // Nền trời xanh mát
       const skyGrad = ctx.createLinearGradient(x, y - radius, x, y + radius);
       skyGrad.addColorStop(0, '#e0f2fe');
       skyGrad.addColorStop(0.6, '#bae6fd');
@@ -883,7 +1241,6 @@
       ctx.fillStyle = skyGrad;
       ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
 
-      // Đám mây trắng mềm mại
       ctx.fillStyle = '#ffffff';
       ctx.beginPath();
       ctx.arc(x - 20, y - 80, 40, 0, Math.PI * 2);
@@ -891,7 +1248,6 @@
       ctx.arc(x - 60, y - 65, 25, 0, Math.PI * 2);
       ctx.fill();
 
-      // Đồi cỏ xanh lớp sau
       ctx.fillStyle = '#a3e635';
       ctx.beginPath();
       ctx.moveTo(x - radius, y + 60);
@@ -901,7 +1257,6 @@
       ctx.closePath();
       ctx.fill();
 
-      // Đồi cỏ xanh lớp trước
       ctx.fillStyle = '#65a30d';
       ctx.beginPath();
       ctx.moveTo(x - radius, y + 100);
@@ -914,7 +1269,6 @@
       ctx.restore();
     }
 
-    // Vẽ Vòng nguyệt quế vàng kim (Golden Laurel Wreath)
     function drawGoldenLaurelWreath(cx, cy, radius) {
       if (!toggleLaurel.checked) return;
 
@@ -930,19 +1284,16 @@
       ctx.shadowColor = 'rgba(234, 179, 8, 0.7)';
       ctx.shadowBlur = 20;
 
-      // Nhánh trái và nhánh phải
       [-1, 1].forEach(side => {
         ctx.save();
         ctx.scale(side, 1);
 
-        // Cuống nhánh cây uốn lượn
         ctx.strokeStyle = goldGrad;
         ctx.lineWidth = 3.5;
         ctx.beginPath();
         ctx.arc(0, 0, radius + 14, Math.PI * 0.38, Math.PI * 0.98, false);
         ctx.stroke();
 
-        // 13 chùm lá vàng
         const leafCount = 13;
         for (let i = 0; i < leafCount; i++) {
           const t = i / (leafCount - 1);
@@ -970,13 +1321,11 @@
         ctx.restore();
       });
 
-      // Điểm giao nhau ở đáy
       ctx.fillStyle = goldGrad;
       ctx.beginPath();
       ctx.ellipse(0, radius + 14, 14, 8, 0, 0, Math.PI * 2);
       ctx.fill();
 
-      // Dải ruy băng nơ vàng
       ctx.strokeStyle = goldGrad;
       ctx.lineWidth = 4;
       ctx.beginPath();
@@ -989,7 +1338,6 @@
       ctx.restore();
     }
 
-    // Vẽ Avatar vào khung tròn
     function drawAvatar() {
       const { x, y, radius } = POS.avatar;
 
@@ -998,14 +1346,12 @@
       ctx.shadowBlur = 35;
       ctx.shadowOffsetY = 12;
 
-      // 1. Cắt mặt nạ tròn
       ctx.beginPath();
       ctx.arc(x, y, radius, 0, Math.PI * 2);
       ctx.save();
       ctx.clip();
 
       if (userAvatarImg) {
-        // Tinh chỉnh theo Pan, Zoom, Rotate
         ctx.translate(x + avatarState.panX, y + avatarState.panY);
         ctx.rotate((avatarState.rotation * Math.PI) / 180);
         ctx.scale(avatarState.scale, avatarState.scale);
@@ -1023,15 +1369,13 @@
 
         ctx.drawImage(userAvatarImg, -dw / 2, -dh / 2, dw, dh);
       } else if (checkDefaultIllustration.checked) {
-        // Vẽ tranh minh họa mặc định chuẩn phôi
         drawDefaultIllustration(x, y, radius);
       } else {
         ctx.fillStyle = '#064e4b';
         ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
       }
-      ctx.restore(); // gỡ clip
+      ctx.restore();
 
-      // 2. Viền hào quang vàng quanh hình tròn
       ctx.save();
       const ringGrad = ctx.createLinearGradient(x - radius, y - radius, x + radius, y + radius);
       ringGrad.addColorStop(0, '#FFFFFF');
@@ -1049,20 +1393,16 @@
       ctx.stroke();
       ctx.restore();
 
-      // 3. Vòng nguyệt quế vàng
       drawGoldenLaurelWreath(x, y, radius);
-
       ctx.restore();
     }
 
-    // Vẽ Thông tin Cán Bộ
     function drawOfficerText() {
       const { x, y } = POS.officerText;
 
       ctx.save();
       ctx.textAlign = 'left';
 
-      // 1. Dòng Cán bộ: [Họ và tên]
       ctx.font = '700 38px "Montserrat", sans-serif';
       ctx.fillStyle = '#fef08a';
       ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
@@ -1073,7 +1413,6 @@
       const offset = ctx.measureText('Cán bộ: ').width;
       const rawName = (officerName.value.trim() || '...').toUpperCase();
 
-      // Hiệu ứng chữ mạ vàng kim loại nổi bật
       ctx.font = '800 42px "Montserrat", sans-serif';
       const nameGrad = ctx.createLinearGradient(x + offset, y - 35, x + offset, y + 10);
       nameGrad.addColorStop(0, '#FFFFFF');
@@ -1087,8 +1426,7 @@
       ctx.shadowOffsetY = 3;
       ctx.fillText(rawName, x + offset, y);
 
-      // 2. Dòng Phòng ban & Chi nhánh
-      const unit = officerUnit.value.trim() || 'Phòng ...... - Chi nhánh BIDV .........';
+      const unit = `${officerUnit.value.trim() || 'Phòng ......'} - ${officerUnit2.value.trim() || 'Chi nhánh BIDV .........'}`;
       ctx.font = '500 32px "Be Vietnam Pro", sans-serif';
       ctx.fillStyle = '#f1f5f9';
       ctx.shadowBlur = 8;
@@ -1098,7 +1436,6 @@
       ctx.restore();
     }
 
-    // Vẽ Khung Deal mạ vàng góc phải (Chuẩn 100% theo Mẫu có ảnh (1).jpg)
     function drawCard() {
       const { x, y, width, height, radius } = POS.card;
 
@@ -1107,7 +1444,6 @@
       ctx.shadowBlur = 28;
       ctx.shadowOffsetY = 12;
 
-      // Nền kính mờ
       const cardBg = ctx.createLinearGradient(x, y, x + width, y + height);
       cardBg.addColorStop(0, 'rgba(4, 55, 49, 0.88)');
       cardBg.addColorStop(0.5, 'rgba(12, 85, 77, 0.65)');
@@ -1127,7 +1463,6 @@
       ctx.closePath();
       ctx.fill();
 
-      // Viền vàng kim mạ cao cấp bo tròn
       const borderGrad = ctx.createLinearGradient(x, y, x + width, y + height);
       borderGrad.addColorStop(0, 'rgba(254, 240, 138, 0.95)');
       borderGrad.addColorStop(0.4, 'rgba(234, 179, 8, 0.5)');
@@ -1136,15 +1471,9 @@
       ctx.strokeStyle = borderGrad;
       ctx.lineWidth = 2.5;
       ctx.stroke();
-
       ctx.restore();
 
-      // =========================
-      // NỘI DUNG TRONG THẺ
-      // =========================
       ctx.save();
-
-      // 1. Tiêu đề món phí
       const title = dealTitle.value.trim() || 'Tiêu đề vinh danh ...';
       ctx.font = '700 32px "Montserrat", sans-serif';
       ctx.fillStyle = '#ffffff';
@@ -1152,13 +1481,11 @@
       ctx.shadowBlur = 8;
       ctx.fillText(title, x + 40, y + 68);
 
-      // 2. Số tiền & Đơn vị VNĐ
       const centerX = x + width / 2;
       const centerY = y + 175;
       const amount = dealAmount.value.trim();
 
       if (amount) {
-        // Có số tiền cụ thể: in to nổi khối
         ctx.font = '900 68px "Montserrat", sans-serif';
         const moneyGrad = ctx.createLinearGradient(centerX - 150, centerY - 50, centerX + 150, centerY);
         moneyGrad.addColorStop(0, '#FFFFFF');
@@ -1172,13 +1499,11 @@
         ctx.textAlign = 'center';
         ctx.fillText(amount, centerX - 50, centerY);
 
-        // Chữ VNĐ vàng kim bên phải
         ctx.textAlign = 'right';
         ctx.font = '900 42px "Montserrat", sans-serif';
         ctx.fillStyle = '#facc15';
         ctx.fillText('VNĐ', x + width - 45, centerY);
       } else {
-        // Phôi trống chuẩn theo mẫu: Chữ VNĐ ở bên phải
         ctx.textAlign = 'right';
         ctx.font = '900 42px "Montserrat", sans-serif';
         ctx.fillStyle = '#facc15';
@@ -1187,7 +1512,6 @@
         ctx.fillText('VNĐ', x + width - 45, centerY);
       }
 
-      // 3. Đường phân cách mạ vàng và điểm sáng lấp lánh ở giữa
       const lineY = y + 215;
       const sepGrad = ctx.createLinearGradient(x + 60, 0, x + width - 60, 0);
       sepGrad.addColorStop(0, 'transparent');
@@ -1203,10 +1527,8 @@
       ctx.lineTo(x + width - 60, lineY);
       ctx.stroke();
 
-      // Điểm sáng kim cương vàng tại tâm đường kẻ
       drawSparkle(centerX, lineY, 9, 4);
 
-      // 4. Ngày cấp: Dạng "Ngày ..." hoặc ngày cụ thể
       const dateVal = dealDate.value.trim() || 'Ngày ...';
       ctx.textAlign = 'center';
       ctx.font = '600 24px "Be Vietnam Pro", sans-serif';
@@ -1215,7 +1537,6 @@
       ctx.shadowBlur = 6;
       ctx.fillText(dateVal, centerX, lineY + 38);
 
-      // 5. Tên chiến dịch: "Chiến dịch Tốc lực bứt phá đỉnh cao" (cụm "Tốc lực bứt phá đỉnh cao" in đậm)
       const campaign = dealCampaign.value.trim() || 'Chiến dịch ...';
       if (campaign.startsWith('Chiến dịch ')) {
         const prefix = 'Chiến dịch ';
@@ -1226,7 +1547,6 @@
         ctx.font = '800 28px "Be Vietnam Pro", sans-serif';
         const wHighlight = ctx.measureText(highlight).width;
         const totalW = wPrefix + wHighlight;
-
         const startX = centerX - totalW / 2;
 
         ctx.font = '400 28px "Be Vietnam Pro", sans-serif';
@@ -1243,7 +1563,6 @@
         ctx.fillText(campaign, centerX, y + 305);
       }
 
-      // 6. Quý vinh danh: "Bảo hiểm BIC Quý III"
       const quarter = dealQuarter.value.trim() || 'Bảo hiểm BIC Quý ...';
       ctx.textAlign = 'center';
       ctx.font = '500 26px "Be Vietnam Pro", sans-serif';
@@ -1253,7 +1572,6 @@
       ctx.restore();
     }
 
-    // Hiệu ứng các ngôi sao lấp lánh bao phủ banner
     function drawSparkles() {
       if (!toggleSparkles.checked) return;
 
@@ -1272,38 +1590,22 @@
       });
     }
 
-    // ==========================================
-    // RENDER CANVAS TỔNG HỢP
-    // ==========================================
     function render() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // 1. Phôi nền (Ảnh tải lên hoặc Vector mặc định)
       if (customBackgroundImg) {
         ctx.drawImage(customBackgroundImg, 0, 0, canvas.width, canvas.height);
       } else {
         drawVectorBackground();
       }
 
-      // 2. Logo thương hiệu
       drawLogos();
-
-      // 3. Ảnh chân dung & Vòng nguyệt quế
       drawAvatar();
-
-      // 4. Khối văn bản cán bộ
       drawOfficerText();
-
-      // 5. Khung thẻ Big Deal
       drawCard();
-
-      // 6. Ánh sao lung linh
       drawSparkles();
     }
 
-    // ==========================================
-    // KÉO THẢ CHUỘT / TOUCH TRỰC TIẾP TRÊN AVATAR
-    // ==========================================
     function getCanvasCoords(e) {
       const rect = canvas.getBoundingClientRect();
       const scaleX = canvas.width / rect.width;
@@ -1348,26 +1650,23 @@
       }
     });
 
-    // Touch events for Mobile / Tablet
     canvas.addEventListener('touchstart', (e) => {
       if (e.touches.length === 1) {
         const touch = e.touches[0];
-        const mouseEvt = new MouseEvent('mousedown', {
+        canvas.dispatchEvent(new MouseEvent('mousedown', {
           clientX: touch.clientX,
           clientY: touch.clientY
-        });
-        canvas.dispatchEvent(mouseEvt);
+        }));
       }
     }, { passive: false });
 
     window.addEventListener('touchmove', (e) => {
       if (isDragging && e.touches.length === 1) {
         const touch = e.touches[0];
-        const mouseEvt = new MouseEvent('mousemove', {
+        window.dispatchEvent(new MouseEvent('mousemove', {
           clientX: touch.clientX,
           clientY: touch.clientY
-        });
-        window.dispatchEvent(mouseEvt);
+        }));
       }
     }, { passive: false });
 
@@ -1375,9 +1674,6 @@
       window.dispatchEvent(new MouseEvent('mouseup'));
     });
 
-    // ==========================================
-    // ZOOM VIEWPORT CANVAS
-    // ==========================================
     function applyViewZoom() {
       canvasZoomDisplay.textContent = Math.round(viewZoom * 100) + '%';
       canvas.style.transform = `scale(${viewZoom})`;
@@ -1403,7 +1699,6 @@
       applyViewZoom();
     });
 
-    // Toast notification
     function showToast(msg, isError = false) {
       toastText.textContent = msg;
       toast.className = `fixed bottom-6 right-6 z-50 transform translate-y-0 opacity-100 transition-all duration-300 flex items-center gap-3 px-4 py-3 rounded-xl border shadow-2xl ${
@@ -1414,9 +1709,6 @@
       }, 3500);
     }
 
-    // ==========================================
-    // XUẤT ẢNH HD & COPY CLIPBOARD
-    // ==========================================
     btnDownloadHD.addEventListener('click', () => {
       render();
       const raw = officerName.value.trim() || 'BIC-BIDV';
@@ -1430,13 +1722,11 @@
       showToast('Đang tải ảnh Full HD 1920x1080 xuống máy!');
     });
 
-    // ==========================================
-    // LOCALSTORAGE PERSISTENCE
-    // ==========================================
     function persistState() {
       const data = {
         name: officerName.value,
         unit: officerUnit.value,
+        unit2: officerUnit2.value,
         title: dealTitle.value,
         amount: dealAmount.value,
         date: dealDate.value,
@@ -1452,24 +1742,31 @@
         showLogos: toggleBrandLogos.checked
       };
       try {
-        localStorage.setItem('bigdeal_data_v2', JSON.stringify(data));
+        localStorage.setItem('bigdeal_data_v3', JSON.stringify(data));
       } catch (e) {}
     }
 
     function restoreState() {
       try {
-        const raw = localStorage.getItem('bigdeal_data_v2');
+        const raw = localStorage.getItem('bigdeal_data_v3');
         if (raw) {
           const d = JSON.parse(raw);
           if (d.name !== undefined) officerName.value = d.name;
           if (d.unit !== undefined) officerUnit.value = d.unit;
+          if (d.unit2 !== undefined) officerUnit2.value = d.unit2;
           if (d.title !== undefined) dealTitle.value = d.title;
           if (d.amount !== undefined) dealAmount.value = d.amount;
           if (d.date !== undefined) dealDate.value = d.date;
           if (d.campaign !== undefined) dealCampaign.value = d.campaign;
           if (d.quarter !== undefined) dealQuarter.value = d.quarter;
-          if (d.panX !== undefined) avatarState.panX = d.panX;
-          if (d.panY !== undefined) avatarState.panY = d.panY;
+          if (d.panX !== undefined) {
+            avatarState.panX = d.panX;
+            avatarPanX.value = d.panX;
+          }
+          if (d.panY !== undefined) {
+            avatarState.panY = d.panY;
+            avatarPanY.value = d.panY;
+          }
           if (d.scale !== undefined) {
             avatarState.scale = d.scale;
             avatarZoom.value = Math.round(d.scale * 100);
@@ -1488,11 +1785,40 @@
       } catch (e) {}
     }
 
-    // Khởi động ứng dụng
-    restoreState();
-    document.fonts.ready.then(() => {
+    function loadImageFromDataUrl(url) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(null);
+        img.src = url;
+      });
+    }
+
+    async function initApp() {
+      restoreState();
+      try {
+        await ImageStorage.init();
+        
+        const savedAvatar = await ImageStorage.getSetting('active_avatar');
+        if (savedAvatar) {
+          currentAvatarDataUrl = savedAvatar;
+          userAvatarImg = await loadImageFromDataUrl(savedAvatar);
+        }
+
+        const savedBg = await ImageStorage.getSetting('active_bg');
+        if (savedBg) {
+          currentCustomBgDataUrl = savedBg;
+          customBackgroundImg = await loadImageFromDataUrl(savedBg);
+        }
+      } catch (err) {
+        console.warn('Lỗi kết nối IndexedDB:', err);
+      }
+
+      await document.fonts.ready;
       render();
-    });
+    }
+
+    initApp();
     window.addEventListener('resize', render);
   </script>
 </body>
